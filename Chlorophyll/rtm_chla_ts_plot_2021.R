@@ -127,6 +127,15 @@ ts_cust_format <- list(
     name = "Station:", 
     option = "plasma", 
     end = 0.95
+  ),
+  annotate(
+    "rect",
+    xmin = ymd("2021-09-11"), 
+    xmax = ymd("2021-09-15"),
+    ymin = -Inf,
+    ymax = Inf,
+    alpha = 0.2,
+    fill = "grey50"
   )
 )
 
@@ -171,7 +180,6 @@ ggsave(
   dpi = 300
 )
 
-# >>>> REMAINING QUESTIONS:
-# 1) Do we want to add shaded rectangles for the flow action period?
-# 2) I made the y-axis scales the same for the two regions. Do we want to change that?
+# >>>> REMAINING QUESTION:
+# 1) I made the y-axis scales the same for the two regions. Do we want to change that?
 
