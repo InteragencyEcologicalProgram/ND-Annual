@@ -4,89 +4,104 @@ setwd("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Rscripts_plankton
 library(tidyverse)
 library(patchwork)
 library(viridis)
+library(janitor)
 
-#### PHYTOPLANKTON DATA ####
 
-#### PHYTOPLANKTON DATA ####
-phytoplankton_data <- read_csv("../Data_plankton/20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv", show_col_types = FALSE)
-NDFS_phytoplankton_data_2021 <- phytoplankton_data
+# CONSTRUCTING THE DF TO ANALYZE
 
-# Removing duplicate sites by creating a site object.
+## Phytoplankton data to analyze ####
+
+### Pulling the phytoplankton data sets
+NDFS_phytoplankton_data_2021 <- read_csv("../Data_plankton/20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv", show_col_types = FALSE) %>% # Phytoplankton data
+  clean_names()
+phytoplankton_tax_data <- read_csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Data_plankton/phyto_group_classification.csv") %>% # Phytoplankton taxonomic data
+  clean_names()
+
+### Removing duplicate sites by creating a site object. Eventually this will be part of the metadata pipeline
 NDFS_station_codes <- c("BL5", "I80", "LIB", "LIS", "RCS", "RD22", "RMB", "RVB", "RYI", "STTD")
 
-NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021[NDFS_phytoplankton_data_2021$StationCode %in% NDFS_station_codes,]
+NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021[NDFS_phytoplankton_data_2021$station_code %in% NDFS_station_codes,]
 
-# Adding column Sampling.Date
-# Merge boat and land dates into single day
-## Convert Date column into date format
-NDFS_phytoplankton_data_2021$SampleDate <- as.Date(NDFS_phytoplankton_data_2021$SampleDate, format="%m/%d/%Y")
+NDFS_phytoplankton_data_2021$sample_date <- as.Date(NDFS_phytoplankton_data_2021$sample_date, format="%m/%d/%Y")
 
-rename(NDFS_phytoplankton_data_2021, TotalCells = "Number of Cells per unit")
+### Joining the phytoplankton taxonomic data to the phytoplankton data
+NDFS_phytoplankton_data_2021 <- left_join(NDFS_phytoplankton_data_2021, phytoplankton_tax_data, by = "genus") 
 
-# CONSTRUCTING THE PHYTO PLANKTON METADATA 
-NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021 %>%
-  rename(TotalCells = `Number of cells per unit`) %>%
-  mutate(Sampling.Time = case_when( # CREATING "Sampling.Time" COLUMN
-    SampleDate < as.Date("2021-09-11") ~ "Before",
-    SampleDate >= as.Date("2021-09-11") & SampleDate <= ("2021-09-14") ~ "During",
-    SampleDate > ("2021-09-14") ~ "After",
-    TRUE ~ "Error")) %>% # Error if any dates are wrong 
-  mutate(Region = case_when( # CREATING "Region" COLUMN
-    StationCode == "RMB"|StationCode == "RCS" ~ "Colusa Drain/Ridge Cut",
-    StationCode == "RD22"|StationCode == "I80" ~ "Upper Yolo Bypass",
-    StationCode == "LIS"|StationCode == "STTD" ~ "Lower Yolo Bypass",
-    StationCode == "BL5"|StationCode == "LIB" ~ "Cache Slough Complex",
-    StationCode == "RYI"|StationCode == "RVB" ~ "Lower Sac River",
-    StationCode == "SHR" ~ "Sherwood Harbor",
-    TRUE ~ "Error")) %>% # Error if any station codes are wrong 
-  mutate(Site.Region = case_when(
-    Region == "Colusa Drain/Ridge Cut" | Region == "Upper Yolo Bypass" | Region == "Lower Yolo Bypass" ~ "Upstream Region",
-    Region == "Cache Slough Complex" | Region == "Lower Sac River" ~ "Downstream Region",
-    Region == "Sherwood Harbor" ~ "Control Region",
-    TRUE ~ "Error"))%>%
-  mutate(BioV.Avg = apply(NDFS_phytoplankton_data_2021[,c(31:40)], 1, mean, na.rm = TRUE)) %>% # Average all 10 biovolume measurements for each taxon (BioV.Avg)
-  mutate(Density = `Unit Abundance` * Factor) %>% # Calculate unit abundance per mL (Density)
-  mutate(BioV.per.mL = TotalCells * BioV.Avg * Factor) # Calculate Biovolume density (per mL) per Flynn_Brown memo
+## Zooplankton data to analyze ####
 
-## making the phytoplankton plots ####
-regions = c("Cache Slough Complex", "Lower Sac River", "Colusa Drain/Ridge Cut", "Upper Yolo Bypass", "Lower Yolo Bypass", "Sherwood Harbor")
-sampling.times = c("Before", "During", "After")
+### Appending the zooplankton files to each other
+file_names <- dir("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Data_plankton/20211115 YB Zooplankton ID Data Sheet - SAMPLES 67-143 - Contract 4600012453_EditedCOPY", 
+                  pattern = "*150um.csv", 
+                  full.names = TRUE)
 
-# Still need to fix this plot: Need to fix the order of the boxplots and the legend. Also need to add letters to each one and use patchwork to combine them.
-magma(3)
+NDFS_zooplankton_data_2021 <- do.call(rbind, lapply(file_names, read.csv)) %>%
+  clean_names()
 
-phytoplankton_boxplot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = Sampling.Time, y = log(BioV.per.mL), fill = Sampling.Time)) +#, fill = Sampling.Time)) +
-  stat_boxplot(geom = "errorbar") +
-  geom_boxplot() +
-  scale_fill_viridis(option = "A", discrete = TRUE) +
-  scale_x_discrete(limits = sampling.times) +
-  labs(x = "Sampling Period",
-       y = expression(paste("Log Phytoplankton Biovolume (",mu, m^3, "/", mL,")", sep="")),
-       fill = "Sampling Period") +
-  theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
-  # theme(axis.text.x = element_text(angle = 0, hjust = 1))
-  facet_grid(. ~ Site.Region)
+NDFS_zooplankton_data_2021$date <- as.Date(NDFS_zooplankton_data_2021$date)#, format = "%m/%d/%y")
 
-#### Making the zooplankton metadata ####
-
-# Pull in the desired CSVs and append them to each other
-file_names <- dir("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Data_plankton/20211115 YB Zooplankton ID Data Sheet - SAMPLES 67-143 - Contract 4600012453_EditedCOPY",  pattern = "*150um.csv", full.names = TRUE)
-
-NDFS_zooplankton_data_2021 <- do.call(rbind, lapply(file_names, read.csv))
-
+### subsetting and formatting the data. Will be part of metadata pipeline
 NDFS_zooplankton_data_2021 <- NDFS_zooplankton_data_2021[NDFS_zooplankton_data_2021$station %in% NDFS_station_codes,]
 
 NDFS_zooplankton_data_2021$date <- as.Date(NDFS_zooplankton_data_2021$date)
 
+## joining the zooplankton lab and field data 
+zoop_field_data <- read_csv("../Data_plankton/NDFS_zoop_field_data.csv", show_col_types = FALSE, skip = 1) %>%
+  clean_names()
+
+zoop_field_data <- zoop_field_data %>%
+  select("measuring_program_short_name", "sampling_event_date", "sampling_area_number", "flow_meter_start_150", "flow_meter_end_150", "net_type") #%>%
+  #rename("date" = "sampling_event_date", "station" = "sampling_area_number")
+
+zoop_field_data$sampling_event_date <- as.Date(zoop_field_data$sampling_event_date, format="%m/%d/%Y")
+
+zoop_field_data <- zoop_field_data[zoop_field_data$measuring_program_short_name %in% c("NDFS", "Shared"),] # what are the cutoff for the dates?
+
+zoop_field_data <- zoop_field_data[zoop_field_data$net_type == 150,]
+# CONSTRUCTING THE PLANKTON METADATA 
+
+NDFS_zooplankton_data_2021 <- left_join(NDFS_zooplankton_data_2021, zoop_field_data, by = c("date" = "sampling_event_date", "station" = "sampling_area_number")) %>%
+  select(c("project", "station", "date", "flow_meter_start_150", "flow_meter_end_150","category", "taxon", "count", "subsample", "v1_ml", "sub1_ml", "v2_ml", "sub2_ml"))#, "sampling_time", "region", "site_region"))
+
+# CONSTRUCTING THE PLANKTON METADATA 
+
+###<><><><><><><><><<> Here is where I left off <><><><><><
+
+## Phytoplankton metadata ####
+
+NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021 %>%
+  rename(total_cells = number_of_cells_per_unit) %>%
+  mutate(sampling_time = case_when( # CREATING "sampling_time" COLUMN
+    sample_date < as.Date("2021-09-11") ~ "Before",
+    sample_date >= as.Date("2021-09-11") & sample_date <= ("2021-09-14") ~ "During",
+    sample_date > ("2021-09-14") ~ "After",
+    TRUE ~ "Error")) %>% # Error if any dates are wrong 
+  mutate(region = case_when( # CREATING "region" COLUMN
+    station_code == "RMB"|station_code == "RCS" ~ "Colusa Drain/Ridge Cut",
+    station_code == "RD22"|station_code == "I80" ~ "Upper Yolo Bypass",
+    station_code == "LIS"|station_code == "STTD" ~ "Lower Yolo Bypass",
+    station_code == "BL5"|station_code == "LIB" ~ "Cache Slough Complex",
+    station_code == "RYI"|station_code == "RVB" ~ "Lower Sac River",
+    station_code == "SHR" ~ "Sherwood Harbor",
+    TRUE ~ "Error")) %>% # Error if any station codes are wrong 
+  mutate(site_region = case_when(
+    region == "Colusa Drain/Ridge Cut" | region == "Upper Yolo Bypass" | region == "Lower Yolo Bypass" ~ "Upstream region",
+    region == "Cache Slough Complex" | region == "Lower Sac River" ~ "Downstream region",
+    region == "Sherwood Harbor" ~ "Control region",
+    TRUE ~ "Error"))%>% #Error if any regions are wrong
+  #rename(NDFS_phytoplankton_data_2021, total_cells = number_of_cells_per_unit) %>% #Correction of phytoplankton data per Ted Flynn memo
+  mutate(biov_avg = apply(NDFS_phytoplankton_data_2021[,c(31:40)], 1, mean, na.rm = TRUE)) %>% # Average all 10 biovolume measurements for each taxon (BioV.Avg)
+  mutate(density = unit_abundance * factor) %>% # Calculate unit abundance per mL (Density)
+  mutate(biov_per_mL = total_cells * biov_avg * factor) # Calculate Biovolume density (per mL) per Flynn_Brown memo
+
+## Zooplankton metadata ####
+
 NDFS_zooplankton_data_2021 <- NDFS_zooplankton_data_2021 %>%
-  mutate(Sampling.Time = case_when( # CREATING "Sampling.Time" COLUMN
+  mutate(sampling_time = case_when( # CREATING "sampling_time" COLUMN
     date < as.Date("2021-09-11") ~ "Before",
     date >= as.Date("2021-09-11") & date <= ("2021-09-14") ~ "During",
     date > ("2021-09-14") ~ "After",
     TRUE ~ "Error")) %>% # Error if any dates are wrong 
-  mutate(Region = case_when(
+  mutate(region = case_when(
     station == "RMB"|station == "RCS" ~ "Colusa Drain/Ridge Cut",
     station == "RD22"|station == "I80" ~ "Upper Yolo Bypass",
     station == "LIS"|station == "STTD" ~ "Lower Yolo Bypass",
@@ -94,94 +109,87 @@ NDFS_zooplankton_data_2021 <- NDFS_zooplankton_data_2021 %>%
     station == "RYI"|station == "RVB" ~ "Lower Sac River",
     station == "SHR" ~ "Sherwood Harbor",
     TRUE ~ "Error")) %>%# Error if any station codes are wrong 
-  mutate(Site.Region = case_when(
-    Region == "Colusa Drain/Ridge Cut" | Region == "Upper Yolo Bypass" | Region == "Lower Yolo Bypass" ~ "Upstream Region",
-    Region == "Cache Slough Complex" | Region == "Lower Sac River" ~ "Downstream Region",
-    Region == "Sherwood Harbor" ~ "Control Region",
+  mutate(site_region = case_when(
+    region == "Colusa Drain/Ridge Cut" | region == "Upper Yolo Bypass" | region == "Lower Yolo Bypass" ~ "Upstream region",
+    region == "Cache Slough Complex" | region == "Lower Sac River" ~ "Downstream region",
+    region == "Sherwood Harbor" ~ "Control region",
     TRUE ~ "Error"))
-# making the zooplankton plots ####
 
-## Merging lab and field data 
-zoop_field_data <- read_csv("../Data_plankton/NDFS_zoop_field_data.csv", show_col_types = FALSE, skip = 1)
-
-zoop_field_data$`Sampling Event Date` <- as.Date(zoop_field_data$`Sampling Event Date`, format="%m/%d/%Y")
-
-zoop_field_data <- zoop_field_data[zoop_field_data$`Measuring program short name` %in% c("NDFS", "Shared"),] 
-  
-zoop_field_data <- zoop_field_data[zoop_field_data$`Net Type` == 150,]
-
-zoop_field_data <- zoop_field_data %>%
-  select("Sampling Event Date", "Sampling Area Number", "Flow Meter Start (150)", "Flow Meter End (150)") %>%
-  rename("date" = "Sampling Event Date", "station" = "Sampling Area Number")
-
-
-NDFS_zooplankton_data_2021 <- left_join(NDFS_zooplankton_data_2021, zoop_field_data, by = c("date" = "date", "station" = "station")) %>%
-  select(c("project", "station", "date", "Flow Meter Start (150)", "Flow Meter End (150)","category", "taxon", "count", "subsample", "v1_ml", "sub1_ml", "v2_ml", "sub2_ml", "Sampling.Time", "Region", "Site.Region"))
-
-NDFS_zooplankton_data_2021$CPUE <- #if Meso
+NDFS_zooplankton_data_2021$CPUE <- #if Meso// eventually this will connect to the pipeline above for automation
   ifelse(
     (NDFS_zooplankton_data_2021$category != "MICROZOOPLANKTON & NAUPLII"), 
     (NDFS_zooplankton_data_2021$count/((NDFS_zooplankton_data_2021$sub1_ml)/(NDFS_zooplankton_data_2021$v1_ml))/
-       (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$`Flow Meter End (150)`-NDFS_zooplankton_data_2021$`Flow Meter Start (150)`)*57560)/999999))
+       (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$flow_meter_end_150-NDFS_zooplankton_data_2021$flow_meter_start_150)*57560)/999999))
     ),
     ifelse(
       (NDFS_zooplankton_data_2021$category == "MICROZOOPLANKTON & NAUPLII"), 
       NDFS_zooplankton_data_2021$count/((NDFS_zooplankton_data_2021$sub2_ml)/(NDFS_zooplankton_data_2021$v2_ml))/
-        (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$`Flow Meter End (150)`-NDFS_zooplankton_data_2021$`Flow Meter Start (150)`)*57560)/999999)),
+        (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$flow_meter_end_150-NDFS_zooplankton_data_2021$flow_meter_start_150)*57560)/999999)),
       0
     )) 
 
 NDFS_zooplankton_data_2021$CPUE[is.na(NDFS_zooplankton_data_2021$CPUE)] <- 0
 
-#NDFS_zooplankton_data_2021$Sampling.Time <- factor(NDFS_zooplankton_data_2021$Sampling.Time, levels = c("Before", "During", "After"))
 
-zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = Sampling.Time, y = log(CPUE), fill = Sampling.Time)) +#, fill = Sampling.Time)) +
-  stat_boxplot(geom = "errorbar")+
-  geom_boxplot() +
-  scale_fill_viridis(option = "A", discrete = TRUE) +
-  scale_x_discrete(limits = sampling.times)+
-  labs(x = "Sampling Period",
-       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
-       fill = "Sampling Period")+
-  theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
-  # theme(axis.text.x = element_text(angle = 0, hjust = 1))
-  facet_grid(. ~ Site.Region)
+# CONSTRUCTING THE PLANKTON PLOTS
 
-# remaking figure 50 ####
+# remaking figure 49 ####
 
-zooplankton_tax_group_plot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = Sampling.Time, y = log(CPUE), fill = Sampling.Time)) +#, fill = Sampling.Time)) +
-  stat_boxplot(geom = "errorbar")+
-  geom_boxplot() +
-  scale_fill_viridis(option = "A", discrete = TRUE) +
-  scale_x_discrete(limits = sampling.times)+
-  labs(x = "Sampling Period",
-       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
-       fill = "Sampling Period")+
-  theme_bw() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
-  # theme(axis.text.x = element_text(angle = 0, hjust = 1))
-  facet_wrap(. ~ category)
 
-# Remaking figure 50, but for phytoplankton ####
-phytoplankton_tax_data <- read_csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Data_plankton/phyto_taxonomy_WoRMS_complete.csv")
+### Creating factor levels for the plots
+NDFS_phytoplankton_data_2021$sampling_time <- factor(NDFS_phytoplankton_data_2021$sampling_time, levels = c("Before", "During", "After"))
 
-NDFS_phytoplankton_data_2021 <- left_join(NDFS_phytoplankton_data_2021, phytoplankton_tax_data, by = "Genus") 
-
-NDFS_phytoplankton_data_2021$Sampling.Time <- factor(NDFS_phytoplankton_data_2021$Sampling.Time, levels = c("Before", "During", "After"))
-
-phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = Sampling.Time, y = log(BioV.per.mL), fill = Sampling.Time)) +#, fill = Sampling.Time)) +
+phytoplankton_boxplot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
   stat_boxplot(geom = "errorbar") +
   geom_boxplot() +
   scale_fill_viridis(option = "A", discrete = TRUE) +
-  scale_x_discrete(limits = sampling.times) +
+  #scale_x_discrete(limits = sampling_time) +
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Phytoplankton Biovolume (",mu, m^3, "/", mL,")", sep="")),
+       fill = "Sampling Period") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) + 
+  facet_grid(. ~ site_region)
+
+NDFS_zooplankton_data_2021$sampling_time <- factor(NDFS_zooplankton_data_2021$sampling_time, levels = c("Before", "During", "After"))
+zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
+       fill = "Sampling Period")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) + 
+  facet_grid(. ~ site_region)
+
+# remaking figure 50 ####
+
+zooplankton_tax_group_plot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
+       fill = "Sampling Period")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  facet_wrap(. ~ category)
+
+phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar") +
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time) +
   labs(x = "Sampling Period",
        y = expression(paste("Log Phytoplankton Biovolume ("," " ,mu, m^3, "/", mL,")", sep="")),
        fill = "Sampling Period") +
   theme_bw() +
   theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
-    #axis.text.x = element_text(angle = 0, hjust = 1))
-  facet_wrap(. ~ Group)
+        panel.grid.minor = element_blank()) +
+  facet_wrap(. ~ group)
