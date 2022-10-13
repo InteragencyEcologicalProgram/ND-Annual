@@ -153,6 +153,7 @@ phytoplankton_boxplot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sam
   facet_grid(. ~ site_region)
 
 NDFS_zooplankton_data_2021$sampling_time <- factor(NDFS_zooplankton_data_2021$sampling_time, levels = c("Before", "During", "After"))
+
 zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
   stat_boxplot(geom = "errorbar")+
   geom_boxplot() +
@@ -193,3 +194,79 @@ phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
   facet_wrap(. ~ group)
+
+# use ggarrange to put the plots together
+
+# STATISTICAL ANALYSIS
+
+#t-test for upstream/downstream differences -- Phytoplankton
+NDFS_phytoplankton_data_2021_ttest_df <- NDFS_phytoplankton_data_2021 %>% 
+  group_by(site_region, station_code) %>%
+  summarize(total_biovolume = mean(biov_per_mL))
+
+phyto_ttest <- t.test(log(total_biovolume)~site_region, NDFS_phytoplankton_data_2021_ttest_df, alternative="two.sided", var.equal=FALSE)
+phyto_ttest #no significant difference between upstream and downstream
+
+# t-test for zooplankton
+#t-test for upstream/downstream differences in total zooplankton
+zoop_cpue_ttest_df <- NDFS_zooplankton_data_2021 %>% 
+  group_by(site_region, station) %>% 
+  summarize(regional_total_cpue = mean(CPUE))
+
+zoop_ttest <- t.test(log(regional_total_cpue)~site_region, zoop_cpue_ttest_df, alternative="two.sided", var.equal=FALSE)
+zoop_ttest #no significant difference between regions
+
+#t-tests for upstream/downstream differences in zooplankton groups
+zoop_group_ttest <- NDFS_zooplankton_data_2021 %>%
+  select(station, site_region, category, CPUE) %>% 
+  distinct() %>%
+  group_by(station, site_region, category) %>% 
+  summarize(total_cpue = mean(CPUE))
+
+# calanoids
+calanoids <- NDFS_zooplankton_data_2021 %>%
+  filter(category == "CALANOIDS") %>%
+  group_by(site_region, station) %>%
+  summarize(total_cpue = mean(CPUE))
+  
+calanoid_ttest <- t.test(total_cpue~site_region, calanoids, alternative="two.sided", var.equal=FALSE)
+calanoid_ttest #downstream higher
+
+# cladocerans
+cladocerans <- NDFS_zooplankton_data_2021 %>% 
+  filter(category == "CLADOCERA") %>%
+  group_by(site_region, station) %>%
+  summarize(total_cpue = mean(CPUE))
+
+cladoceran_ttest <- t.test(log(total_cpue)~site_region, cladocerans, alternative="two.sided", var.equal=FALSE)
+cladoceran_ttest #upstream higher
+# hist(log(cladocerans$total_cpue)) # this is not normally distributed
+
+# cyclopoids
+cyclopoids <- NDFS_zooplankton_data_2021 %>%
+  filter(category == "CYCLOPOIDS") %>%
+  group_by(site_region, station) %>%
+  summarize(total_cpue = mean(CPUE))
+
+cyclopoid_ttest <- t.test(log(total_cpue)~site_region, cyclopoids, alternative="two.sided", var.equal=FALSE)
+cyclopoid_ttest #not significantly different
+hist(log(cyclopoids$total_cpue)) # this is not normally distributed
+
+# harpacticoids
+harpacticoids <- NDFS_zooplankton_data_2021 %>%
+  filter(category == "HARPACTICOIDS") %>%
+  group_by(site_region, station) %>%
+  summarize(total_cpue = mean(CPUE))
+
+harpacticoid_ttest <- t.test(log(total_cpue)~site_region, harpacticoids, alternative="two.sided", var.equal=FALSE) # ttest isn't working for these
+harpacticoid_ttest #not significantly different
+
+# microzoops
+microzoop <- NDFS_zooplankton_data_2021 %>%
+  filter(category == "MICROZOOPLANKTON & NAUPLII") %>%
+  group_by(site_region, station) %>%
+  summarize(total_cpue = mean(CPUE))
+
+microzoop_ttest<-t.test(log(total_cpue)~site_region, microzoop, alternative="two.sided", var.equal=FALSE)
+microzoop_ttest #not significantly different
+hist(log(microzoop$total_cpue)) # not sure if this is normal
