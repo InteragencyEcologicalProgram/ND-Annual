@@ -11,7 +11,7 @@ library(janitor)
 
 ## Phytoplankton data to analyze ####
 
-### Pulling the phytoplankton data sets
+### Pulling the phytoplankton data sets ####
 NDFS_phytoplankton_data_2021 <- read_csv("../Data_plankton/20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv", show_col_types = FALSE) %>% # Phytoplankton data
   clean_names()
 phytoplankton_tax_data <- read_csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/Plankton/Data_plankton/phyto_group_classification.csv") %>% # Phytoplankton taxonomic data
