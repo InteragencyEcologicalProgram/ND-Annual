@@ -5,7 +5,8 @@ library(tidyverse)
 library(patchwork)
 library(viridis)
 library(janitor)
-
+library(rstatix)
+library(ggpubr)
 
 # CONSTRUCTING THE DF TO ANALYZE
 
@@ -116,7 +117,7 @@ NDFS_zooplankton_data_2021 <- NDFS_zooplankton_data_2021 %>%
     TRUE ~ "Error"))
 
 NDFS_zooplankton_data_2021$CPUE <- #if Meso// eventually this will connect to the pipeline above for automation
-  ifelse(
+  ifelse( # copy over explanation
     (NDFS_zooplankton_data_2021$category != "MICROZOOPLANKTON & NAUPLII"), 
     (NDFS_zooplankton_data_2021$count/((NDFS_zooplankton_data_2021$sub1_ml)/(NDFS_zooplankton_data_2021$v1_ml))/
        (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$flow_meter_end_150-NDFS_zooplankton_data_2021$flow_meter_start_150)*57560)/999999))
@@ -144,30 +145,48 @@ phytoplankton_boxplot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sam
   geom_boxplot() +
   scale_fill_viridis(option = "A", discrete = TRUE) +
   #scale_x_discrete(limits = sampling_time) +
-  labs(x = "Sampling Period",
-       y = expression(paste("Log Phytoplankton Biovolume (",mu, m^3, "/", mL,")", sep="")),
+  labs(x = element_blank(),
+       y = expression(paste("Log Phytoplankton Biovolume (","  ",mu, m^3, "/", mL,")", sep="")),
        fill = "Sampling Period") +
   theme_bw() +
   theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
-  facet_grid(. ~ site_region)
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_blank(),
+        legend.position = "none") + 
+  facet_grid(. ~ site_region) 
+  
 
 NDFS_zooplankton_data_2021$sampling_time <- factor(NDFS_zooplankton_data_2021$sampling_time, levels = c("Before", "During", "After"))
 
-zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
+zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) + # I need to get rid of the top labels still
   stat_boxplot(geom = "errorbar")+
   geom_boxplot() +
   scale_fill_viridis(option = "A", discrete = TRUE) +
   #scale_x_discrete(limits = sampling_time)+
-  labs(x = "Sampling Period",
-       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
+  labs(x = element_blank(),
+       y = expression(paste("Log Zooplankton Density CPUE  (","  ",no., "/", m^3,")", sep="")),
        fill = "Sampling Period")+
   theme_bw() +
   theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank()) + 
+        panel.grid.minor = element_blank(),
+        legend.position = "none") + 
   facet_grid(. ~ site_region)
 
+combined_boxplot_49 <- ggarrange(phytoplankton_boxplot, zooplankton_boxplot, # I need to annotate each plot still, could potentially do this in powerpoint 
+                              ncol = 1, nrow = 2, 
+                              legend = "right", common.legend = TRUE)
+
 # remaking figure 50 ####
+
+NDFS_zooplankton_data_2021 <- NDFS_zooplankton_data_2021 %>%
+  mutate(category = case_when(
+         category == "MICROZOOPLANKTON & NAUPLII" ~ "Microzooplankton & Nauplii",
+         category == "CYCLOPOIDS" ~ "Cyclopoids",
+         category == "CALANOIDS" ~ "Calanoids",
+         category == "CLADOCERA" ~ "Cladocera",
+         category == "HARPACTICOIDS" ~ "Harpacticoids",
+         category == "MACROZOOPLANKTON" ~ "Macrozooplankton",
+         TRUE ~ "Error"))
 
 zooplankton_tax_group_plot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
   stat_boxplot(geom = "errorbar")+
@@ -182,7 +201,61 @@ zooplankton_tax_group_plot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = 
         panel.grid.minor = element_blank()) +
   facet_wrap(. ~ category)
 
+NDFS_phytoplankton_data_2021$group <- replace(NDFS_phytoplankton_data_2021$group, NDFS_phytoplankton_data_2021$group == "Dinoflagellates", "Other")
+NDFS_phytoplankton_data_2021$group <- replace(NDFS_phytoplankton_data_2021$group, is.na(NDFS_phytoplankton_data_2021$group), "Other")
+
 phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar") +
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time) +
+  labs(x = element_blank(),
+       y = expression(paste("Log Phytoplankton Biovolume ("," " ,mu, m^3, "/", mL,")", sep="")),
+       fill = "Sampling Period") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_blank()) +
+  facet_wrap(. ~ group)
+
+combined_group_plot_50 <- ggarrange(phytoplankton_tax_group_plot, zooplankton_tax_group_plot, # I need to annotate each plot still, could potentially do this in powerpoint 
+                                 ncol = 1, nrow = 2, 
+                                 legend = "right", common.legend = TRUE)
+
+# ALTERNATE VERSIONS OF FIGURE 50 ####
+# version 2
+phytoplankton_tax_group_plot2 <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar") +
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time) +
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Phytoplankton Biovolume ("," " ,mu, m^3, "/", mL,")", sep="")),
+       fill = "Sampling Period") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  facet_grid(group ~ site_region)
+
+zooplankton_tax_group_plot2 <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
+       fill = "Sampling Period")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  facet_grid(category ~ site_region)
+
+combined_group_plot_502 <- ggarrange(phytoplankton_tax_group_plot2, zooplankton_tax_group_plot2, # I need to annotate each plot still, could potentially do this in powerpoint 
+                                    ncol = 2, nrow = 1, 
+                                    legend = "right", common.legend = TRUE)
+
+# version 3
+phytoplankton_tax_group_plot3 <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = site_region, y = log(biov_per_mL), fill = site_region)) +
   stat_boxplot(geom = "errorbar") +
   geom_boxplot() +
   scale_fill_viridis(option = "A", discrete = TRUE) +
@@ -195,9 +268,25 @@ phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(
         panel.grid.minor = element_blank()) +
   facet_wrap(. ~ group)
 
-# use ggarrange to put the plots together
+zooplankton_tax_group_plot3 <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = site_region, y = log(CPUE), fill = site_region)) +
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
+       fill = "Sampling Period")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  facet_wrap(. ~ category)
 
-# STATISTICAL ANALYSIS
+combined_group_plot_503 <- ggarrange(phytoplankton_tax_group_plot3, zooplankton_tax_group_plot3, # I need to annotate each plot still, could potentially do this in powerpoint 
+                                     ncol = 1, nrow = 2, 
+                                     legend = "right", common.legend = TRUE)
+
+
+# STATISTICAL ANALYSIS ####
 
 #t-test for upstream/downstream differences -- Phytoplankton
 NDFS_phytoplankton_data_2021_ttest_df <- NDFS_phytoplankton_data_2021 %>% 
@@ -217,6 +306,8 @@ zoop_ttest <- t.test(log(regional_total_cpue)~site_region, zoop_cpue_ttest_df, a
 zoop_ttest #no significant difference between regions
 
 #t-tests for upstream/downstream differences in zooplankton groups
+unique(NDFS_zooplankton_data_2021$category)
+
 zoop_group_ttest <- NDFS_zooplankton_data_2021 %>%
   select(station, site_region, category, CPUE) %>% 
   distinct() %>%
@@ -236,11 +327,19 @@ calanoid_ttest #downstream higher
 cladocerans <- NDFS_zooplankton_data_2021 %>% 
   filter(category == "CLADOCERA") %>%
   group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
+  summarize(total_cpue = mean(CPUE)) %>%
+  mutate(log_cpue = log(total_cpue))
 
 cladoceran_ttest <- t.test(log(total_cpue)~site_region, cladocerans, alternative="two.sided", var.equal=FALSE)
 cladoceran_ttest #upstream higher
-# hist(log(cladocerans$total_cpue)) # this is not normally distributed
+hist(log(cladocerans$total_cpue)) # this is not normally distributed
+
+summary(cladoceran_ttest)
+summary(cladocerans)
+
+hist(residuals(cladoceran_ttest))
+
+qqnorm(residuals(cladoceran_ttest))
 
 # cyclopoids
 cyclopoids <- NDFS_zooplankton_data_2021 %>%
@@ -254,12 +353,16 @@ hist(log(cyclopoids$total_cpue)) # this is not normally distributed
 
 # harpacticoids
 harpacticoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "HARPACTICOIDS") %>%
+  filter(category == "Harpacticoids") %>%
   group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
+  summarize(total_cpue = mean(CPUE)) 
 
 harpacticoid_ttest <- t.test(log(total_cpue)~site_region, harpacticoids, alternative="two.sided", var.equal=FALSE) # ttest isn't working for these
 harpacticoid_ttest #not significantly different
+hist(log(harpacticoids$total_cpue)) # this is not normally distributed
+
+# make site_region factor
+
 
 # microzoops
 microzoop <- NDFS_zooplankton_data_2021 %>%
@@ -270,3 +373,7 @@ microzoop <- NDFS_zooplankton_data_2021 %>%
 microzoop_ttest<-t.test(log(total_cpue)~site_region, microzoop, alternative="two.sided", var.equal=FALSE)
 microzoop_ttest #not significantly different
 hist(log(microzoop$total_cpue)) # not sure if this is normal
+
+# qqplot to test normality?
+
+# t-test for phytoplankton
