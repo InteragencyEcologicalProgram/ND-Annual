@@ -72,7 +72,7 @@ NDFS_zooplankton_data_2021 <- left_join(NDFS_zooplankton_data_2021, zoop_field_d
 ## Phytoplankton metadata ####
 
 NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021 %>%
-  #rename(total_cells = number_of_cells_per_unit) %>%
+  rename(total_cells = number_of_cells_per_unit) %>%
   mutate(sampling_time = case_when( # CREATING "sampling_time" COLUMN
     sample_date < as.Date("2021-09-11") ~ "Before",
     sample_date >= as.Date("2021-09-11") & sample_date <= ("2021-09-14") ~ "During",
@@ -128,10 +128,11 @@ NDFS_zooplankton_data_2021$CPUE <- #if Meso// eventually this will connect to th
       (NDFS_zooplankton_data_2021$category == "MICROZOOPLANKTON & NAUPLII"), 
       NDFS_zooplankton_data_2021$count/((NDFS_zooplankton_data_2021$sub2_ml)/(NDFS_zooplankton_data_2021$v2_ml))/
         (((3.14*0.25)/4)*((abs(NDFS_zooplankton_data_2021$flow_meter_end_150-NDFS_zooplankton_data_2021$flow_meter_start_150)*57560)/999999)),
-      0
+      0 # This should be error instead, so we can detect where there is an issue.
     )) 
 
 NDFS_zooplankton_data_2021$CPUE[is.na(NDFS_zooplankton_data_2021$CPUE)] <- 0
+NDFS_zooplankton_data_2021$log_CPUE <- log(NDFS_zooplankton_data_2021$CPUE)
 
 
 # CONSTRUCTING THE PLANKTON PLOTS
@@ -142,15 +143,19 @@ NDFS_zooplankton_data_2021$CPUE[is.na(NDFS_zooplankton_data_2021$CPUE)] <- 0
 ### Creating factor levels for the plots
 NDFS_phytoplankton_data_2021$sampling_time <- factor(NDFS_phytoplankton_data_2021$sampling_time, levels = c("Before", "During", "After"))
 NDFS_phytoplankton_data_2021$site_region <- factor(NDFS_phytoplankton_data_2021$site_region, levels = c("Upstream region", "Downstream region"))
+NDFS_phytoplankton_data_2021$group <- factor(NDFS_phytoplankton_data_2021$group, levels = c("Diatoms", "Green Algae", "Cyanobacteria", "Cryptophytes", "Golden Algae", "Other"))
+NDFS_zooplankton_data_2021$category <- factor(NDFS_zooplankton_data_2021$category, levels =c("Calanoids", "Microzooplankton & Nauplii", "Cyclopoids", "Cladocera", "Macrozooplankton", "Harpacticoids"))
 
 phytoplankton_boxplot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
   stat_boxplot(geom = "errorbar") +
   geom_boxplot() +
+  #geom_hline(yintercept = 0) +
   scale_fill_viridis(option = "A", discrete = TRUE) +
   #scale_x_discrete(limits = sampling_time) +
   labs(x = element_blank(),
        y = expression(paste("Log Phytoplankton Biovolume (","  ",mu, m^3, "/", mL,")", sep="")),
-       fill = "Sampling Period") +
+       fill = "Sampling Period",
+       tag = "A") +
   theme_bw() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
@@ -166,16 +171,18 @@ NDFS_zooplankton_data_2021$site_region <- factor(NDFS_zooplankton_data_2021$site
 zooplankton_boxplot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) + # I need to get rid of the top labels still
   stat_boxplot(geom = "errorbar")+
   geom_boxplot() +
+  #geom_hline(yintercept = 0) +
   scale_fill_viridis(option = "A", discrete = TRUE) +
   #scale_x_discrete(limits = sampling_time)+
   labs(x = element_blank(),
        y = expression(paste("Log Zooplankton Density CPUE  (","  ",no., "/", m^3,")", sep="")),
-       fill = "Sampling Period")+
+       fill = "Sampling Period",
+       tag = "B")+
   theme_bw() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none") + 
-  facet_grid(. ~ site_region)
+  facet_grid(. ~ site_region) 
 
 combined_boxplot_49 <- ggarrange(phytoplankton_boxplot, zooplankton_boxplot, # I need to annotate each plot still, could potentially do this in powerpoint 
                               ncol = 1, nrow = 2, 
@@ -200,7 +207,8 @@ zooplankton_tax_group_plot <- ggplot(data = NDFS_zooplankton_data_2021, aes(x = 
   #scale_x_discrete(limits = sampling_time)+
   labs(x = "Sampling Period",
        y = expression(paste("Log Zooplankton Density CPUE  ("," ",no., "/", m^3,")", sep="")),
-       fill = "Sampling Period")+
+       fill = "Sampling Period",
+       tag = "B")+
   theme_bw() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()) +
@@ -216,9 +224,10 @@ phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(
   #scale_x_discrete(limits = sampling_time) +
   labs(x = element_blank(),
        y = expression(paste("Log Phytoplankton Biovolume ("," " ,mu, m^3, "/", mL,")", sep="")),
-       fill = "Sampling Period") +
+       fill = "Sampling Period",
+       tag = "A") +
   theme_bw() +
-  theme(panel.grid.major = element_blank(),
+  theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         axis.text.x = element_blank()) +
   facet_wrap(. ~ group)
@@ -226,6 +235,9 @@ phytoplankton_tax_group_plot <- ggplot(data = NDFS_phytoplankton_data_2021, aes(
 combined_group_plot_50 <- ggarrange(phytoplankton_tax_group_plot, zooplankton_tax_group_plot, # I need to annotate each plot still, could potentially do this in powerpoint 
                                  ncol = 1, nrow = 2, 
                                  legend = "right", common.legend = TRUE)
+
+
+
 
 # ALTERNATE VERSIONS OF FIGURE 50 ####
 # version 2
@@ -286,9 +298,9 @@ zooplankton_tax_group_plot3 <- ggplot(data = NDFS_zooplankton_data_2021, aes(x =
         panel.grid.minor = element_blank()) +
   facet_wrap(. ~ category)
 
-combined_group_plot_503 <- ggarrange(phytoplankton_tax_group_plot3, zooplankton_tax_group_plot3, # I need to annotate each plot still, could potentially do this in powerpoint 
-                                     ncol = 1, nrow = 2, 
-                                     legend = "right", common.legend = TRUE)
+combined_group_plot_503 <- ggarrange(phytoplankton_tax_group_plot3, phytoplankton_tax_group_plot, zooplankton_tax_group_plot3, zooplankton_tax_group_plot, # I need to annotate each plot still, could potentially do this in powerpoint 
+                                     ncol = 2, nrow = 2, 
+                                     legend = "right")
 
 
 # STATISTICAL ANALYSIS ####
@@ -330,7 +342,7 @@ macrozooplankton_ttest #downstream higher
 
 # calanoids
 calanoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "CALANOIDS") %>%
+  filter(category == "Calanoids") %>%
   group_by(site_region, station) %>%
   summarize(total_cpue = mean(CPUE))
   
@@ -339,10 +351,9 @@ calanoid_ttest #downstream higher
 
 # cladocerans
 cladocerans <- NDFS_zooplankton_data_2021 %>% 
-  filter(category == "CLADOCERA") %>%
+  filter(category == "Cladocera") %>%
   group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE)) %>%
-  mutate(log_cpue = log(total_cpue))
+  summarize(total_cpue = mean(CPUE))
 
 cladoceran_ttest <- t.test(log(total_cpue)~site_region, cladocerans, alternative="two.sided", var.equal=FALSE)
 cladoceran_ttest #upstream higher
@@ -357,7 +368,7 @@ qqnorm(residuals(cladoceran_ttest))
 
 # cyclopoids
 cyclopoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "CYCLOPOIDS") %>%
+  filter(category == "Cyclopoids") %>%
   group_by(site_region, station) %>%
   summarize(total_cpue = mean(CPUE))
 
@@ -380,7 +391,7 @@ hist(log(harpacticoids$total_cpue)) # this is not normally distributed
 
 # microzoops
 microzoop <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "MICROZOOPLANKTON & NAUPLII") %>%
+  filter(category == "Microzooplankton & Nauplii") %>%
   group_by(site_region, station) %>%
   summarize(total_cpue = mean(CPUE))
 
@@ -436,7 +447,7 @@ hist(log(cyanobacteria$total_biovolume))
 # Golden Algae
 golden_algae <- NDFS_phytoplankton_data_2021 %>%
   filter(group == "Golden Algae") %>%
-  group_by(site_region, station_code) %>%
+  group_by(sampling_time,site_region, station_code) %>%
   summarize(total_biovolume = mean(biov_per_mL))
 
 golden_algae_ttest <- t.test(log(total_biovolume)~site_region, golden_algae, alternative="two.sided", var.equal=FALSE) # not enough x observations
@@ -461,7 +472,8 @@ phyto_groups_ANOVA_df <- NDFS_phytoplankton_data_2021 %>%
 
 zoop_categories_ANOVA_df <- NDFS_zooplankton_data_2021 %>%
   group_by(site_region, station, sampling_time) %>%
-  summarize(regional_total_cpue = mean(CPUE))
+  summarize(regional_total_cpue = mean(CPUE))  %>%
+  mutate(log_cpue = log(regional_total_cpue))
 
 diatoms_ANOVA_df <- NDFS_phytoplankton_data_2021 %>%
   filter(group == "Diatoms") %>%
@@ -603,3 +615,118 @@ summary(two_way_phyto_groups)
   
   # Plot the results in a graph
   
+# For figure 49:
+  #two-way ANOVA analysis with sampling period and site region as independent variables for each of the subplots
+  
+# for figure 50:
+  #one-way ANOVA analysis with sampling period as independent variable for each of the subplots
+  # Phytoplankton
+  # Diatoms one-way ANOVA
+  diatoms <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Diatoms") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_diatoms <- aov(log(total_biovolume) ~ sampling_time, data = diatoms)
+  summary(one_way_diatoms)
+  
+  # Golden Algae one-way ANOVA
+  golden_algae <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Golden Algae") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_golden_algae <- aov(log(total_biovolume) ~ sampling_time, data = golden_algae)
+  summary(one_way_golden_algae)
+  
+  # Cryptophyte one-way ANOVA
+  cryptophytes <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Cryptophytes") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_cryptophytes <- aov(log(total_biovolume) ~ sampling_time, data = cryptophytes)
+  summary(one_way_cryptophytes)
+  
+  # Cryptophyte one-way ANOVA
+  cyanobacteria <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Cyanobacteria") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_cyanobacteria <- aov(log(total_biovolume) ~ sampling_time, data = cyanobacteria)
+  summary(one_way_cyanobacteria)
+  
+  # Green Algae one-way ANOVA
+  green_algae <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Green Algae") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_green_algae <- aov(log(total_biovolume) ~ sampling_time, data = green_algae)
+  summary(one_way_green_algae)
+  
+  # Other one-way ANOVA
+  other <- NDFS_phytoplankton_data_2021 %>%
+    filter(group == "Other") %>%
+    group_by(sampling_time,site_region, station_code) %>%
+    summarize(total_biovolume = mean(biov_per_mL))
+  
+  one_way_other <- aov(log(total_biovolume) ~ sampling_time, data = other)
+  summary(one_way_other)
+  
+  #Zooplankton
+  # Calanoids one-way ANOVA
+  calanoids <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Calanoids") %>%
+    group_by(site_region, sampling_time) %>%
+    summarize(regional_total_cpue = mean(CPUE)) 
+  
+  one_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time, data = calanoids) # I shoudld do log for this too
+  summary(one_way_calanoids) 
+  
+  # Cladocera one-way ANOVA
+  cladocera <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Cladocera") %>%
+    group_by(site_region, sampling_time, station) %>%
+    summarize(regional_total_cpue = mean(CPUE)) 
+  
+  one_way_cladocera <- aov(log(regional_total_cpue) ~ sampling_time, data = cladocera) # I shoudld do log for this too
+  summary(one_way_cladocera) 
+  
+  # Cyclopoids one-way ANOVA
+  cyclopoids <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Cyclopoids") %>%
+    group_by(site_region, sampling_time, station) %>%
+    summarize(regional_total_cpue = mean(CPUE)) 
+  
+  one_way_cyclopoids <- aov(log(regional_total_cpue) ~ sampling_time, data = cyclopoids) # I shoudld do log for this too
+  summary(one_way_cyclopoids)
+  
+  # Harpacticoids one-way ANOVA
+  harpacticoids <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Harpacticoids") %>%
+    group_by(site_region, sampling_time) %>%
+    summarize(regional_total_cpue = mean(CPUE) + 1) # quick and dirty fix to the problem I had before.
+  
+  one_way_harpacticoids <- aov(log(regional_total_cpue) ~ sampling_time, data = harpacticoids) # I shoudld do log for this too
+  summary(one_way_harpacticoids)
+  
+  # Macrozooplanton one-way ANOVA
+  macrozooplankton <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Macrozooplankton") %>%
+    group_by(site_region, sampling_time) %>%
+    summarize(regional_total_cpue = mean(CPUE)) # quick and dirty fix to the problem I had before.
+
+  one_way_macrozooplankton <- aov(log(regional_total_cpue) ~ sampling_time, data = macrozooplankton) # I shoudld do log for this too
+  summary(one_way_macrozooplankton)
+  
+  # Microzooplanton & Nauplii one-way ANOVA
+  microzoop_nauplii <- NDFS_zooplankton_data_2021 %>%
+    filter(category == "Microzooplankton & Nauplii") %>%
+    group_by(site_region, sampling_time) %>%
+    summarize(regional_total_cpue = mean(CPUE)) # quick and dirty fix to the problem I had before.
+  
+  one_way_microzoop_nauplii <- aov(log(regional_total_cpue) ~ sampling_time, data = microzoop_nauplii) # I shoudld do log for this too
+  summary(one_way_microzoop_nauplii)
+  #post-hoc tests if there is reason to.

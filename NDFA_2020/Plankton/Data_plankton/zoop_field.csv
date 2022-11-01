@@ -1,0 +1,42 @@
+﻿Program,Date,Time,Station.Code,WDL_SAM_code,,ZoopNetType,Set_Time_150,Set_Time_50,Flow_Meter_Start_150,Flow_Meter_End_150,Flow_Meter_Start_50,Flow_Meter_End_50,Flow_Meter_Speed,Volume_Mesozooplankton_150,Subsample_Volume_Mesozooplankton_150,Volume_Microzooplankton_150,Subsample_Volume_Microzooplankton_150,Entered_by,QAQC_by,Field_Comments,Observation_Area_Name,Observation_Area_Number,Spot_Number,Spot_Code_original_duplicate
+NDFA,8/5/2014,12:05,BL5,EDZ0208B9217,1,150,5,,848455,852000,,,Low,2000,1,2000,1,cstuart,acasby,Flowmeter has a bubble,150,1,1,original
+YBFMP,10/10/2016,13:12,STTD,EDZ1016B9217,1,150,5,,222222,223222,,,Low,,,,,hhudson,cstuart,Debris in net,150,1,1,original
+NDFA,7/14/2020,8:45,I80,ES0720B0166,1,150,5,,913658,914451,,,Low,,,,,acasby,cstuart,,150,1,1,original
+NDFA,7/14/2020,11:41,RD22,ES0720B0164,1,150,5,,908670,910000,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/14/2020,8:32,RMB,ES0720B0161,1,150,5,,910760,912000,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/14/2020,9:42,RCS,ES0720B0162,1,150,5,,909891,911000,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/14/2020,10:12,LIS,ES0720B0167,1,150,5,,912369,913656,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/13/2020,9:17,SHR,ES0720B0173,1,150,5,,912082,915190,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/13/2020,7:08,RVB,ES0720B0172,1,150,5,,900765,903211,,,Low,,,,,acasby,ldixit,sampled against tide (downstream),150,1,1,original
+NDFA,7/13/2020,7:54,RYI,ES0720B0171,1,150,5,,898930,900760,,,Low,,,,,acasby,ldixit,sampled against tide (downstream),150,1,1,original
+NDFA,7/13/2020,8:27,LIB,ES0720B0170,1,150,5,,896736,898938,,,Low,,,,,acasby,ldixit,,150,1,1,original
+NDFA,7/13/2020,8:55,BL5,ES0720B0169,1,150,5,,894730,896736,,,Low,,,,,acasby,ldixit,towed with flow (upstream),150,1,1,original
+NDFA,7/13/2020,9:27,STTD,ES0720B0168,1,150,5,,891697,894713,,,Low,,,,,acasby,ldixit,towing downstream (against flow),150,1,1,original
+NDFA,7/27/2020,11:55,STTD,ES0720B0208,1,150,5,,892239,895674,,,Low,,,,,cstuart,hhudson,,150,1,1,original
+NDFA,7/27/2020,11:15,BL5,ES0720B0209,1,150,5,,895687,899210,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/27/2020,10:40,LIB,ES0720B0210,1,150,5,,899223,902250,,,Low,,,,,ldixit,hhudson,little veg in zoop sample,150,1,1,original
+NDFA,7/27/2020,9:56,RYI,ES0720B0211,1,150,5,,902274,905476,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/27/2020,9:00,RVB,ES0720B0212,1,150,5,,905502,908488,,,Low,,,,,ldixit,hhudson,Time inside bottles should have been changed to 9:00am,150,1,1,original
+NDFA,7/27/2020,8:55,SHR,ES0720B0213,1,150,5,,908400,912300,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/28/2020,10:29,LIS,ES0720B0207,1,150,5,,890522,891740,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/28/2020,8:59,I80,ES0720B0206,1,150,5,,891751,892220,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/28/2020,10:33,RD22,ES0720B0204,1,150,5,,905326,906500,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/28/2020,8:43,RCS,ES0720B0202,1,150,5,,906527,907700,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,7/28/2020,7:40,RMB,ES0720B0201,1,150,5,,907728,909000,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/10/2020,10:57,SHR,ES0820B0231,1,150,5,,888538,890510,,,Low,,,,,ldixit,hhudson,Zoop tow taken at 0900 PST,150,1,1,original
+NDFA,8/10/2020,8:38,RVB,ES0820B0230,1,150,5,,901923,905312,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/10/2020,9:19,RYI,ES0820B0229,1,150,5,,899255,901910,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/10/2020,9:47,LIB,ES0820B0228,1,150,5,,896245,899239,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/10/2020,10:22,BL5,ES0820B0227,1,150,5,,892839,896228,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/10/2020,11:01,STTD,ES0820B0226,1,150,5,,889349,892834,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/11/2020,10:24,LIS,ES0820B0225,1,150,5,,886474,887700,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/11/2020,9:02,I80,ES0820B0224,1,150,5,,887722,888500,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/11/2020,10:12,RD22,ES0820B0222,1,150,5,,885798,886960,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/11/2020,8:39,RCS,ES0820B0220,1,150,5,,886953,888000,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+NDFA,8/11/2020,7:34,RMB,ES0820B0219,1,150,5,,888003,889050,,,Low,,,,,ldixit,hhudson,,150,1,1,original
+YBFMP,2/10/2020,10:24,STTD,ES0220B0017,1,150,5,,928862,930300,,,Low,,,,,acasby,abrady,,150,1,1,original
+YBFMP,2/10/2020,10:24,STTD,ES0220B0017,1,50,,2,,,711818,712000,Low,,,,,acasby,abrady,,50,2,1,original 
+YBFMP,12/1/2020,9:55,STTD,ES1220B0537,1,150,5,,877745,879000,,,Low,,,,,hhudson,abrady,,150,1,1,original 
+YBFMP,12/1/2020,9:55,STTD,ES1220B0537,1,50,,2,,,707764,708300,Low,,,,,hhudson,abrady,,50,2,1,original 
+YBFMP,11/30/2020,10:13,SHR,ES1220B0539,1,150,5,,882002,879087,,,Low,,,,,hhudson,,,150,1,1,original 
+YBFMP,11/30/2020,10:13,SHR,ES1220B0539,1,50,,2,,,708901,708358,Low,,,,,hhudson,,,50,2,1,original 

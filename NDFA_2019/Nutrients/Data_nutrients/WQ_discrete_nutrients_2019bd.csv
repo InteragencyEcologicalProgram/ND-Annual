@@ -1,0 +1,1246 @@
+StationCode,Date,Time,Analyte,Result,Units,Method,Depth,Purpose
+SHR,2019-08-05,9:14,TOP,0.028,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DisNitrateNitrite,0.072,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DON,0.13,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,TKN,0.26,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DOC,1.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-08-05,9:14,DOC,1.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-08-05,9:14,DisCalcium,9.66,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DisSilica,15.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,TDS,63,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-08-05,9:14,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DOP,0.631,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DOP,0.631,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,TOP,0.791,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DON,0.86,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisNitrateNitrite,1.23,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisNitrateNitrite,1.24,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,TKN,1.37,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DOC,6.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-08-06,9:26,TOC,6.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-08-06,9:26,DisSilica,17.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,VSS,18,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisCalcium,32.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisChloride,51.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-08-06,9:26,TSS,125,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-08-06,9:26,TDS,384,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+I80,2019-08-06,9:26,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisNitrateNitrite,0.166,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DOP,0.24,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,TOP,0.287,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DON,0.51,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,TKN,0.833,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,TOC,5.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-08-06,11:28,DOC,5.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-08-06,11:28,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisSilica,11.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisCalcium,24.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisChloride,27.8,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisChloride,27.9,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,TSS,42,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,TDS,291,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-08-06,11:28,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DOP,0.092,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisNitrateNitrite,0.104,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,TOP,0.176,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DON,0.52,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,TKN,0.75,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,VSS,4,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DOC,6.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-08-06,11:57,DOC,6.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-08-06,11:57,TOC,6.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-08-06,11:57,TOC,6.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisChloride,14.6,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisSilica,23,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisSilica,23.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisCalcium,36.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisCalcium,37.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,TSS,54,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,TDS,332,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-08-06,11:57,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,DON,0.55,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,DON,0.59,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,TKN,0.839,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,TKN,0.851,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,TKN,0.901,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-08-06,1:50,DOP,1.15,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,DOP,1.19,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,TOP,1.21,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,TOP,1.24,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,TOP,1.24,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,DisNitrateNitrite,2.83,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,DisNitrateNitrite,3.02,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,VSS,4,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,VSS,4,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,TOC,4.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-08-06,1:50,DOC,4.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-08-06,2:10,DOC,5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,TOC,5.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,DisSilica,17.5,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,DisSilica,18.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,TSS,33,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,DisCalcium,34.1,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,TSS,36,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,DisCalcium,36.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-08-06,1:50,TSS,40,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-08-06,1:50,DisChloride,76.8,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,DisChloride,76.8,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+RD22,2019-08-06,2:10,TDS,77,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+RD22,2019-08-06,1:50,TDS,433,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RD22,2019-08-06,1:50,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-08-06,2:10,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RMB,2019-08-06, 10:14:00 AM,DOP,0.112,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TOP,0.202,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,DON,0.53,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TKS,0.729,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,DOC,6.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TOC,6.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,DisChloride,14.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,DisCalcium,35.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TSS,62,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TDS,329,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,TDS,330,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-08-06, 10:14:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DisAmmonia,0.063,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DisNitrateNitrite,0.112,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DOP,0.115,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,TOP,0.117,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DON,0.13,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,TKN,0.243,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,TOC,2.3,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-08-07,11:59,DOC,2.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-08-07,11:59,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DisChloride,6.12,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DisCalcium,10.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,DisSilica,13,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,TDS,88,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-08-07,11:59,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,DOP,0.07,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TOP,0.07,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,DOP,0.077,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DOP,0.078,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,TOP,0.08,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisAmmonia,0.161,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,DisAmmonia,0.164,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisAmmonia,0.166,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisNitrateNitrite,0.184,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisNitrateNitrite,0.184,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisNitrateNitrite,0.186,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TKN,0.293,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,TKN,0.367,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,VSS,1,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-08-07,10:59,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-08-07,10:59,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisChloride,4.74,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisChloride,4.78,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TSS,6,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisCalcium,9.8,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisCalcium,10.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,DisSilica,14.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DisSilica,16.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TDS,74,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-08-07,10:59,TDS,77,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+LIB,2019-08-07,10:59,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DOP,0.076,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,TOP,0.08,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DisAmmonia,0.15,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DisNitrateNitrite,0.218,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,TKN,0.283,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DOC,2.2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-08-07,9:36,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-08-07,9:36,DisChloride,4.71,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DisCalcium,10.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,DisSilica,15.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,TDS,74,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-08-07,9:36,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DOP,0.072,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,TOP,0.078,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisAmmonia,0.181,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisNitrateNitrite,0.189,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,TKN,0.355,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-08-07,10:23,TOC,2.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisChloride,4.72,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisChloride,4.72,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisCalcium,10.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,DisSilica,15.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,TDS,75,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RYI,2019-08-07,10:23,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DOP,0.236,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DON,0.24,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DOP,0.24,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TOP,0.247,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TOP,0.262,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DON,0.27,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TKN,0.38,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,TKN,0.421,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,VSS,3,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,DOC,3.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TOC,3.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TOC,3.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-08-07,12:39,DOC,3.7,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisChloride,8.26,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisChloride,8.26,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisChloride,8.26,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,DisSilica,11.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,DisSilica,12.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisCalcium,12.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisCalcium,12.6,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TSS,19,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,TSS,22,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,TDS,109,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,TDS,109,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-08-07,12:39,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+STTD,2019-08-07,12:39,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+SHR,2019-08-19,10:00,TOP,0.036,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisNitrateNitrite,0.052,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,TKN,0.1,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,TOC,1.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+SHR,2019-08-19,10:00,DOC,1.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisChloride,2.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisChloride,2.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,VSS,3,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisCalcium,9.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,TSS,13,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisSilica,15.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,TDS,78,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,TDS,78,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-08-19,10:00,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DisAmmonia,0.053,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DisAmmonia,0.056,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DOP,0.426,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DOP,0.538,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DON,0.59,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DON,0.61,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,TOP,0.79,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-08-20,9:27,TOP,0.81,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,TKN,1.23,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-08-20,9:27,TKN,1.26,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DisNitrateNitrite,1.7,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DisNitrateNitrite,1.71,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-08-20,9:27,TOC,5.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-08-20,9:27,TOC,5.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DOC,6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DOC,6.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-08-20,9:27,VSS,16,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DisSilica,19.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DisSilica,19.4,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,VSS,20,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DisCalcium,32.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DisCalcium,32.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,DisChloride,42.5,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-08-20,9:27,DisChloride,42.5,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,TSS,113,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-08-20,9:27,TSS,120,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+I80,2019-08-20,9:27,TDS,365,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-08-20,9:27,TDS,374,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+LIS,2019-08-20,11:23,DOP,0.209,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,TOP,0.288,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DON,0.5,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,TKN,0.793,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DOC,5.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-08-20,11:23,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-08-20,11:23,VSS,10,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisSilica,13.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisCalcium,22.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisChloride,24.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisChloride,24.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,TSS,46,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,TDS,257,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-08-20,11:23,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DOP,0.071,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DisNitrateNitrite,0.089,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,TOP,0.162,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DON,0.45,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,TKN,0.669,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-08-20,11:14,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-08-20,11:14,DOC,5.7,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-08-20,11:14,DOC,5.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-08-20,11:14,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DisChloride,15.1,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DisSilica,21.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DisCalcium,34.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,TSS,38,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,TDS,313,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-08-20,11:14,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DisAmmonia,0.061,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DON,0.58,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DOP,0.793,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,TOP,0.945,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,TKN,1.07,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DisNitrateNitrite,1.96,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DOC,5.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-08-20,12:50,TOC,5.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-08-20,12:50,VSS,9,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,VSS,9,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DisSilica,17.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DisCalcium,34.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,TSS,41,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,TSS,42,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,DisChloride,69.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-08-20,12:50,TDS,429,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DOP,0.08,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DisNitrateNitrite,0.101,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,TOP,0.146,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DON,0.49,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,TKS,0.643,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DOC,5.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DisChloride,15.8,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DisSilica,22.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DisCalcium,32.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,TSS,46,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,TDS,322,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-08-20, 10:30:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DOP,0.147,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,TOP,0.147,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DON,0.23,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,TKN,0.356,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,TOC,2.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-08-21,11:35,DOC,2.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-08-21,11:35,TSS,6,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DisChloride,6.17,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DisCalcium,11.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DisSilica,13,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,TDS,90,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,TDS,92,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-08-21,11:35,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,TOP,0.08,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DOP,0.092,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DisNitrateNitrite,0.108,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DON,0.19,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,TKN,0.219,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,TOC,2.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-08-21,10:55,DOC,2.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-08-21,10:55,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DisChloride,5.26,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DisCalcium,10.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DisSilica,14.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,TDS,83,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-08-21,10:55,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,TOP,0.059,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DOP,0.075,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DisAmmonia,0.138,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DON,0.14,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DisNitrateNitrite,0.173,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,TKN,0.346,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,TOC,1.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-08-21,9:30,DOC,2.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-08-21,9:30,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DisChloride,4.38,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DisCalcium,10.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,DisSilica,15.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,TDS,80,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-08-21,9:30,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DOP,0.07,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,TOP,0.07,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DisAmmonia,0.146,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DisNitrateNitrite,0.152,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,TKN,0.273,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-08-21,10:20,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-08-21,10:20,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DisChloride,4.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DisCalcium,10.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,DisSilica,15.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-08-21,10:20,TDS,80,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DOP,0.222,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DOP,0.224,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,TOP,0.237,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,TOP,0.244,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DON,0.28,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DON,0.28,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,TKN,0.399,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,TKN,0.422,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,VSS,2,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DOC,3.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-08-21,12:20,TOC,3.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DOC,3.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,TOC,3.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisChloride,7.66,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DisChloride,7.66,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DisChloride,7.67,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisChloride,7.67,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisCalcium,12.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisCalcium,12.4,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DisSilica,14,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisSilica,14,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,TSS,22,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,TSS,24,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,TDS,109,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,TDS,113,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-08-21,12:20,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+STTD,2019-08-21,12:20,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+I80,2019-09-03,9:50,DOP,0.091,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-09-03,9:50,TOP,0.23,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DisNitrateNitrite,0.273,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DON,0.44,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-09-03,9:50,TKN,0.698,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DOC,5.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-09-03,9:50,TOC,5.7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-09-03,9:50,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,VSS,8,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DisChloride,20,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DisSilica,22.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DisCalcium,31.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-09-03,9:50,TSS,70,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,TSS,70,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-09-03,9:50,TDS,308,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-09-03,9:50,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DOP,0.105,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DOP,0.131,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TOP,0.244,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TOP,0.248,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DisNitrateNitrite,0.337,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisNitrateNitrite,0.344,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DON,0.45,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DON,0.56,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TKN,0.698,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,TKN,0.743,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DOC,5.7,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-09-03,11:18,DOC,5.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TOC,5.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TOC,6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-09-03,11:18,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,VSS,7,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisChloride,21.1,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DisChloride,21.1,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisSilica,22.1,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisSilica,22.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DisCalcium,31.7,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisCalcium,31.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,TSS,56,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,TSS,60,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,TDS,311,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,TDS,311,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+LIS,2019-09-03,11:18,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-09-03,11:18,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RCS,2019-09-03,10:20,DOP,0.053,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,DisNitrateNitrite,0.103,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,TOP,0.14,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,DON,0.43,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,TKN,0.597,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,VSS,5,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,TOC,5.3,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-09-03,10:20,DOC,5.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-09-03,10:20,DisChloride,16,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,DisSilica,23.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,DisCalcium,32.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,TSS,50,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,TDS,300,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-09-03,10:20,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DOP,0.06,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DisNitrateNitrite,0.083,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,TOP,0.155,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DON,0.42,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,TKN,0.568,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,VSS,4,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,TOC,5.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-09-03,12:04,DOC,5.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-09-03,12:04,DisChloride,16.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DisSilica,24.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DisCalcium,32.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,TSS,46,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,TDS,306,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RD22,2019-09-03,12:04,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DOP,0.058,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DisNitrateNitrite,0.099,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,TOP,0.145,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DON,0.44,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,TKS,0.562,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DOC,5.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,TOC,5.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DisChloride,16,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DisSilica,23.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DisCalcium,32,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,TSS,57,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,TDS,300,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-09-03, 9:24:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisNitrateNitrite,0.087,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,TOP,0.113,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DOP,0.119,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DON,0.18,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,TKN,0.25,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,TOC,3.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-09-04,11:23,TOC,3.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-09-04,11:23,DOC,3.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-09-04,11:23,DOC,3.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-09-04,11:23,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisChloride,9.05,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisChloride,9.05,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisCalcium,15,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisSilica,15.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,TDS,126,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-09-04,11:23,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,TOP,0.075,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DOP,0.085,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DisAmmonia,0.095,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DisNitrateNitrite,0.131,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DON,0.16,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,TKN,0.28,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DOC,2.2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-09-04,10:50,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-09-04,10:50,DisChloride,6,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,TSS,6,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DisCalcium,11.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,DisSilica,15.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,TDS,82,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-09-04,10:50,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,TOP,0.056,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DOP,0.067,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DisAmmonia,0.112,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DisNitrateNitrite,0.181,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,TKN,0.223,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-09-04,9:40,TOC,2.3,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-09-04,9:40,DisChloride,5.03,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,TSS,8,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,TSS,8,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DisCalcium,10.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DisSilica,16.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,TDS,84,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-09-04,9:40,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,TOP,0.052,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,TOP,0.059,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,DOP,0.063,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,DOP,0.072,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-09-04,10:12,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,TKN,0.104,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:30,DisAmmonia,0.127,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:30,DON,0.13,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,DisAmmonia,0.135,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-09-04,10:12,DisNitrateNitrite,0.152,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,DisNitrateNitrite,0.161,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,TKN,0.264,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,TOC,2.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+RYI,2019-09-04,10:30,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,DOC,2.2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-09-04,10:12,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-09-04,10:30,TSS,4,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,DisChloride,5.2,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,DisChloride,5.2,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,TSS,6,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-09-04,10:12,DisCalcium,11.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,DisCalcium,11.1,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,DisSilica,16.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,DisSilica,16.2,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,TDS,80,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,TDS,80,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+RYI,2019-09-04,10:12,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-09-04,10:30,VSS,,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:25,DOP,0.097,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DOP,0.128,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-09-04,12:02,TOP,0.22,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,TOP,0.227,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DisNitrateNitrite,0.299,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,DisNitrateNitrite,0.308,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:25,DON,0.45,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DON,0.49,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,TKN,0.571,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,TKN,0.634,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-09-04,12:02,VSS,5,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,VSS,5,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:25,DOC,5.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DOC,5.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-09-04,12:02,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-09-04,12:25,TOC,5.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DisChloride,22,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,DisChloride,22,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DisSilica,22.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,DisSilica,22.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:25,DisCalcium,32.7,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DisCalcium,33,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-09-04,12:02,TSS,35,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,TSS,38,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,TDS,311,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,TDS,311,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-09-04,12:02,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-09-04,12:25,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,TOP,0.017,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,TOP,0.028,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-09-05,9:45,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,DON,0.11,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,TKN,0.137,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,TKN,0.15,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,DOC,1.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,TOC,1.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-09-05,9:45,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,VSS,2,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,TOC,2.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+SHR,2019-09-05,10:07,DisChloride,2.98,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,DisChloride,3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,DisCalcium,10.3,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,DisCalcium,10.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-05,9:45,TSS,11,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,TSS,12,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,DisSilica,16.8,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,DisSilica,17.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-05,9:45,TDS,79,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,TDS,80,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+SHR,2019-09-05,9:45,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-09-05,9:45,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-09-05,9:45,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+SHR,2019-09-05,10:07,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+SHR,2019-09-05,10:07,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+SHR,2019-09-16,9:40,TOP,0.027,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DON,0.11,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,TKN,0.181,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,TOC,1.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+SHR,2019-09-16,9:40,DOC,1.7,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-09-16,9:40,DisChloride,2.82,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DisCalcium,10.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,TSS,12,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DisSilica,16.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,TDS,75,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-09-16,9:40,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DOP,0.106,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-09-17,9:13,TOP,0.151,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DisNitrateNitrite,0.171,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DON,0.38,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-09-17,9:13,TKN,0.5,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DOC,4.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-09-17,9:13,TOC,5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-09-17,9:13,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DisChloride,20.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DisSilica,21.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DisCalcium,32.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-09-17,9:13,TSS,51,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-09-17,9:13,TDS,316,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-09-17,9:13,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DOP,0.148,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TOP,0.187,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TOP,0.189,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DisNitrateNitrite,0.247,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DON,0.41,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TKN,0.602,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TKN,0.623,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DOC,5.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-09-17,10:14,TOC,5.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-09-17,10:14,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DisSilica,21.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DisChloride,28.6,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DisCalcium,35,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TSS,41,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,TDS,350,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-09-17,10:14,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DOP,0.103,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DOP,0.107,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,TOP,0.127,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,TOP,0.133,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DisNitrateNitrite,0.16,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DisNitrateNitrite,0.163,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DON,0.33,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DON,0.46,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,TKN,0.462,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,TKN,0.52,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,VSS,3,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,VSS,4,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DOC,4.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DOC,4.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-09-17,10:58,TOC,4.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-09-17,11:20,TOC,4.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DisChloride,18,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DisChloride,18,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DisSilica,21.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-17,10:58,DisSilica,21.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DisSilica,21.8,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RCS,2019-09-17,11:20,TSS,25,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,TSS,29,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-09-17,10:58,DisCalcium,32.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-17,10:58,DisCalcium,33,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DisCalcium,33,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,TDS,300,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,TDS,308,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+RCS,2019-09-17,10:58,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-09-17,11:20,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RD22,2019-09-17,12:59,DOP,0.095,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DisNitrateNitrite,0.117,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,TOP,0.135,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DON,0.4,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,TKN,0.432,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DOC,5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-09-17,12:59,VSS,5,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,TOC,5.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-09-17,12:59,TOC,5.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-09-17,12:59,DOC,5.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-09-17,12:59,DisChloride,17.8,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DisSilica,21.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DisCalcium,33.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,TSS,55,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,TDS,299,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RD22,2019-09-17,12:59,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DOP,0.116,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,TOP,0.118,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DisNitrateNitrite,0.157,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DON,0.42,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,TKS,0.51,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,VSS,4,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DOC,5.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DisChloride,18.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DisSilica,22.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,TSS,27,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DisCalcium,33.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,TDS,302,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-09-17, 9:17:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,DisNitrateNitrite,0.068,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,DisNitrateNitrite,0.073,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,TOP,0.125,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,TOP,0.126,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+BL5,2019-09-18,11:23,DOP,0.134,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,DOP,0.135,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,DON,0.26,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,DON,0.31,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,TKN,0.317,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,TKN,0.347,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,VSS,1,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+BL5,2019-09-18,11:23,DOC,3.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+BL5,2019-09-18,11:23,TOC,3.7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,DOC,3.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-09-18,10:57,TOC,3.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-09-18,11:23,TSS,5,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,TSS,6,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,DisChloride,13.1,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,DisChloride,13.1,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+BL5,2019-09-18,11:23,DisSilica,15.1,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,DisSilica,15.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,DisSilica,15.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,DisCalcium,19.1,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,DisCalcium,19.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,DisCalcium,19.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,TDS,185,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+BL5,2019-09-18,10:57,TDS,187,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-09-18,10:57,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-09-18,11:23,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+LIB,2019-09-18,10:12,TOP,0.074,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TOP,0.074,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DOP,0.085,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DON,0.12,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DisAmmonia,0.138,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DisNitrateNitrite,0.139,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TKN,0.334,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TKN,0.335,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TSS,2,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-09-18,10:12,DOC,3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-09-18,10:12,DisChloride,6.82,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DisCalcium,12.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,DisSilica,16,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,TDS,104,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-09-18,10:12,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,TOP,0.071,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DOP,0.076,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DON,0.11,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DisNitrateNitrite,0.15,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DisAmmonia,0.192,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,TKN,0.39,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-09-18,9:01,TSS,2,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-09-18,9:01,DisChloride,5.96,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DisCalcium,11.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,DisSilica,16.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,TDS,102,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RVB,2019-09-18,9:01,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,TOP,0.074,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DOP,0.076,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DisNitrateNitrite,0.138,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DisAmmonia,0.169,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,TKN,0.327,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,TOC,2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-09-18,9:42,TOC,2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-09-18,9:42,DOC,2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-09-18,9:42,DOC,2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-09-18,9:42,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DisChloride,5.96,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DisCalcium,11.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DisSilica,16.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,TDS,103,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-09-18,9:42,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-09-18,11:59,DOP,0.146,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,DOP,0.168,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-09-18,12:21,TOP,0.2,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,TOP,0.201,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-09-18,11:59,DisNitrateNitrite,0.246,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,DisNitrateNitrite,0.248,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+STTD,2019-09-18,12:21,DON,0.38,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,DON,0.41,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,TKN,0.629,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,TKN,0.644,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-09-18,11:59,TOC,5.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-09-18,12:21,DOC,5.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,DOC,6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-09-18,11:59,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,VSS,6,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-09-18,12:21,TOC,6.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,DisSilica,20.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,DisSilica,20.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,TSS,28,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,TSS,28,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,DisChloride,29.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-09-18,11:59,DisChloride,29.3,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,DisChloride,29.3,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-09-18,12:21,DisCalcium,34.2,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,DisCalcium,34.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,TDS,354,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-09-18,11:59,TDS,358,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-09-18,11:59,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-09-18,12:21,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+SHR,2019-09-30,9:23,TOP,0.033,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DisNitrateNitrite,0.081,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,TKN,0.197,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DOC,1.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-09-30,9:23,TOC,1.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+SHR,2019-09-30,9:23,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DisChloride,2.87,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DisCalcium,9.31,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,TSS,11,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,TSS,11,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DisSilica,15.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,TDS,69,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-09-30,9:23,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DOP,0.372,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-10-01,9:14,TOP,0.443,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DON,0.55,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-10-01,9:14,TKN,0.936,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DisNitrateNitrite,1.08,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DOC,6.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-10-01,9:14,TOC,6.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-10-01,9:14,VSS,9,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DisSilica,18.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DisCalcium,36.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DisChloride,51.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-10-01,9:14,TSS,61,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-10-01,9:14,TDS,414,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-10-01,9:14,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DisNitrateNitrite,0.131,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DOP,0.147,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,TOP,0.225,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DON,0.44,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,TKN,0.727,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DOC,6.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-10-01,10:30,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,TOC,7.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-10-01,10:30,DisSilica,20.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,TSS,34,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DisCalcium,37.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DisChloride,45.5,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,TDS,421,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-10-01,10:30,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DOP,0.094,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,TOP,0.171,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DON,0.4,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,TKN,0.674,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,TOC,4.7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-10-01,10:32,DOC,5.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-10-01,10:32,VSS,8,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisSilica,19.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisSilica,20,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisChloride,22.6,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisCalcium,32.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisCalcium,33.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,TSS,36,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,TDS,342,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-10-01,10:32,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DOP,0.182,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,TOP,0.28,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,TKN,0.338,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DON,0.37,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DisNitrateNitrite,0.473,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,TOC,4.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-10-01,12:29,TOC,4.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-10-01,12:29,DOC,4.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-10-01,12:29,DOC,4.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-10-01,12:29,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DisSilica,21.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DisChloride,30.5,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DisCalcium,34.5,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,TSS,35,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,TDS,361,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RD22,2019-10-01,12:29,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DOP,0.094,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DOP,0.099,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,DOP,0.103,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,TOP,0.15,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,TOP,0.184,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DON,0.24,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DON,0.29,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,TKS,0.538,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,TKS,0.558,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RMB,2019-10-01, 9:19:00 AM,TOC,4.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,DOC,4.6,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,TOC,4.7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DOC,4.7,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,VSS,6,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,DisSilica,19.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DisSilica,19.7,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,DisChloride,22.7,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DisChloride,22.7,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,DisCalcium,32.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DisCalcium,32.7,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,TSS,38,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,TSS,50,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RMB,2019-10-01, 9:19:00 AM,TDS,341,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+RMB,2019-10-01, 8:56:00 AM,TDS,342,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,TDS,342,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RMB,2019-10-01, 8:56:00 AM,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RMB,2019-10-01, 9:19:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RMB,2019-10-01, 9:19:00 AM,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+BL5,2019-10-02,10:50,DisAmmonia,0.077,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,TOP,0.085,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DOP,0.09,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DisNitrateNitrite,0.131,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DON,0.18,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,TKN,0.319,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,TOC,2.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-10-02,10:50,DOC,3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+BL5,2019-10-02,10:50,TSS,6,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DisChloride,7.62,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DisChloride,7.62,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DisCalcium,12.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,DisSilica,14.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-10-02,10:50,TDS,106,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,TOP,0.062,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DOP,0.074,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DOP,0.078,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisAmmonia,0.126,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisAmmonia,0.127,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisNitrateNitrite,0.164,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisNitrateNitrite,0.165,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,TKN,0.272,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DOC,2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-10-02,10:20,TOC,2.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-10-02,10:20,TSS,3,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisChloride,6.05,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisCalcium,11,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,DisSilica,15.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,TDS,88,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-10-02,10:20,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-10-02,9:01,TOP,0.059,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,TOP,0.06,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:25,DOP,0.07,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DOP,0.072,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DON,0.13,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DisAmmonia,0.141,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DisAmmonia,0.147,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DON,0.15,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-10-02,9:01,DisNitrateNitrite,0.195,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DisNitrateNitrite,0.196,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:25,TKN,0.33,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,TKN,0.388,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-10-02,9:01,DOC,1.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-10-02,9:25,TOC,1.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+RVB,2019-10-02,9:25,DOC,1.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-10-02,9:01,TOC,1.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-10-02,9:01,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-10-02,9:01,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,TSS,5,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DisChloride,5.2,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DisChloride,5.2,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DisCalcium,10.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DisCalcium,10.3,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,DisSilica,15.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,DisSilica,15.3,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:25,TDS,80,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+RVB,2019-10-02,9:01,TDS,81,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RVB,2019-10-02,9:01,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-10-02,9:25,VSS,,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+RYI,2019-10-02,9:49,TOP,0.058,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DOP,0.067,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DisAmmonia,0.143,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DisNitrateNitrite,0.171,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,TKN,0.291,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DOC,1.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-10-02,9:49,TOC,2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-10-02,9:49,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DisChloride,5.49,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DisCalcium,10.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DisSilica,15.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,TDS,81,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-10-02,9:49,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,DOP,0.146,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,TOP,0.146,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,DOP,0.147,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:50,TOP,0.149,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:50,DON,0.3,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DON,0.31,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,TKN,0.382,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,TKN,0.416,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,VSS,1,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DOC,4.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-10-02,11:50,DOC,4.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,TOC,4.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-10-02,11:50,TOC,4.6,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-10-02,11:50,DisSilica,12.2,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DisSilica,12.6,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,TSS,15,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DisChloride,15.2,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,DisChloride,15.3,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:50,DisChloride,15.3,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,TSS,16,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,DisCalcium,18.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DisCalcium,19.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,TDS,189,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,TDS,189,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,TDS,192,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:33,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-10-02,11:33,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-10-02,11:50,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+STTD,2019-10-02,11:50,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+SHR,2019-10-14,9:57,TOP,0.024,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DisNitrateNitrite,0.09,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DON,0.1,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TKN,0.1,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TOC,1.3,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+SHR,2019-10-14,9:57,DOC,1.5,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+SHR,2019-10-14,9:57,DisChloride,2.65,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TSS,7,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TSS,7,mg/L,EPA 160.2 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DisCalcium,9.42,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DisSilica,14.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TDS,68,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,TDS,69,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,DOP,,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+SHR,2019-10-14,9:57,VSS,,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DON,0.55,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DOP,0.679,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TOP,0.7,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TOP,0.73,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DisNitrateNitrite,1.32,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TKN,1.41,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TKN,1.45,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DOC,6.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-10-15,2:24,DOC,6.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+I80,2019-10-15,2:24,TOC,7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-10-15,2:24,TOC,7,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+I80,2019-10-15,2:24,VSS,13,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,VSS,13,mg/L,EPA 160.4 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DisSilica,17.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DisCalcium,38.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TSS,50,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TSS,50,mg/L,EPA 160.2 [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DisChloride,59,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+I80,2019-10-15,2:24,TDS,395,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+I80,2019-10-15,2:24,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-10-15,12:47,DOP,0.147,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DOP,0.148,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,DOP,0.15,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,TOP,0.155,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,TOP,0.158,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIS,2019-10-15,12:47,DON,0.24,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DON,0.29,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,TKN,0.452,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,TKN,0.463,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DisNitrateNitrite,0.492,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DOC,3.8,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,TOC,3.8,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DOC,3.9,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIS,2019-10-15,12:47,TOC,3.9,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIS,2019-10-15,12:47,VSS,6,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,VSS,6,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DisSilica,14.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DisSilica,14.3,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DisChloride,15.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-10-15,12:47,DisChloride,15.4,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DisChloride,15.4,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DisCalcium,20.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DisCalcium,20.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,TSS,38,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,TSS,38,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,TDS,169,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,TDS,177,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+LIS,2019-10-15,12:47,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIS,2019-10-15,1:16,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+LIS,2019-10-15,1:16,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
+RCS,2019-10-15,10:49,DOP,0.088,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,TOP,0.115,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DON,0.28,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,TKN,0.544,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,VSS,4,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DOC,4.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RCS,2019-10-15,10:49,TOC,4.5,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisSilica,21.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisSilica,22.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,TSS,23,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisChloride,25.8,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisCalcium,40.7,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisCalcium,41.2,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,TDS,343,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RCS,2019-10-15,10:49,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DisAmmonia,0.05,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DON,0.53,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DOP,0.785,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,TOP,0.8,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,TKN,0.834,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DisNitrateNitrite,3.37,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,TOC,5.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RD22,2019-10-15,12:54,DOC,5.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RD22,2019-10-15,12:54,VSS,7,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DisSilica,24.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,TSS,31,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DisCalcium,39,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,DisChloride,92.1,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RD22,2019-10-15,12:54,TDS,475,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DOP,0.103,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,TOP,0.125,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DON,0.45,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,TKS,0.496,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DOC,4.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,TOC,4.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,VSS,5,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,TSS,17,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DisSilica,21.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DisChloride,23.7,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DisCalcium,38.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,TDS,319,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RMB,2019-10-15, 9:20:00 AM,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,TOP,0.07,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DOP,0.08,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisAmmonia,0.102,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisNitrateNitrite,0.136,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DON,0.15,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,TKN,0.308,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,TOC,2.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+BL5,2019-10-16,11:18,TSS,3,mg/L,EPA 160.2 [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisChloride,6.9,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisChloride,6.9,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisCalcium,13.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DisSilica,14.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,TDS,93,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+BL5,2019-10-16,11:18,DOC,4.31,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-10-16,10:40,TOP,0.062,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DOP,0.077,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DisNitrateNitrite,0.194,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DisAmmonia,0.2,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,TKN,0.375,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-10-16,10:40,DOC,2.1,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+LIB,2019-10-16,10:40,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-10-16,10:40,TOC,2.2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+LIB,2019-10-16,10:40,TSS,4,mg/L,EPA 160.2 [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DisChloride,6.2,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DisCalcium,12.4,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DisSilica,16.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,TDS,89,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+LIB,2019-10-16,10:40,DON,,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,TOP,0.06,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DOP,0.072,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DON,0.2,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DisNitrateNitrite,0.246,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DisAmmonia,0.279,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,TKN,0.591,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DOC,2,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RVB,2019-10-16,9:08,TSS,2,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,TOC,2.1,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RVB,2019-10-16,9:08,DisChloride,5.36,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DisCalcium,11.8,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,DisSilica,17.3,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RVB,2019-10-16,9:08,TDS,77,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,TOP,0.07,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DOP,0.079,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DON,0.15,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DisNitrateNitrite,0.227,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DisAmmonia,0.313,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,TKN,0.632,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,VSS,1,mg/L,EPA 160.4 [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,TOC,2,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+RYI,2019-10-16,10:03,DOC,2.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+RYI,2019-10-16,10:03,TSS,5,mg/L,EPA 160.2 [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DisChloride,5.53,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DisCalcium,11.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,DisSilica,17,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+RYI,2019-10-16,10:03,TDS,78,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DOP,0.097,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,DOP,0.101,mg/L as P,EPA 365.1 (DWR Modified) [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,TOP,0.105,mg/L as P,EPA 365.4 [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,TOP,0.106,mg/L as P,EPA 365.4 [1]*,1,Normal Sample
+STTD,2019-10-16,12:03,DON,0.2,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DON,0.24,mg/L as N,EPA 351.2/EPA 350.1 (Dissolved [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,TKN,0.307,mg/L as N,EPA 351.2 [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,TKN,0.339,mg/L as N,EPA 351.2 [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,VSS,2,mg/L,EPA 160.4 [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,VSS,2,mg/L,EPA 160.4 [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:18,DOC,3.3,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Duplicate Sample
+STTD,2019-10-16,12:18,TOC,3.3,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,DOC,3.4,mg/L as C,EPA 415.3 (D) [PS-3]*,1,Normal Sample
+STTD,2019-10-16,12:03,TOC,3.4,mg/L as C,EPA 415.3 (T) [PS-3]*,1,Normal Sample
+STTD,2019-10-16,12:03,DisChloride,10,mg/L,EPA 300.0 28d Hold [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DisChloride,10,mg/L,EPA 300.0 28d Hold [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,DisSilica,13.1,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DisSilica,13.2,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,DisCalcium,16.9,mg/L,EPA 200.7 (D) [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DisCalcium,16.9,mg/L,EPA 200.7 (D) [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,TSS,21,mg/L,EPA 160.2 [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,TSS,21,mg/L,EPA 160.2 [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,TDS,127,mg/L,Std Method 2540 C [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,TDS,130,mg/L,Std Method 2540 C [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:03,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Normal Sample
+STTD,2019-10-16,12:03,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Normal Sample
+STTD,2019-10-16,12:18,DisAmmonia,,mg/L as N,EPA 350.1 [1]*,1,Duplicate Sample
+STTD,2019-10-16,12:18,DisNitrateNitrite,,mg/L as N,Std Method 4500-NO3-F (28Day) [1]*,1,Duplicate Sample
