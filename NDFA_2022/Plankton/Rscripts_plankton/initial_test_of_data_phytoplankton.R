@@ -9,6 +9,8 @@ library(rstatix)
 library(ggpubr)
 library(broom)
 library(AICcmodavg)
+library(lme4)
+library(car)
 
 # CONSTRUCTING THE DF TO ANALYZE
 
@@ -311,314 +313,28 @@ combined_group_plot_503 <- ggarrange(phytoplankton_tax_group_plot3, phytoplankto
 
 
 # STATISTICAL ANALYSIS ####
-
-#t-test for upstream/downstream differences -- Phytoplankton
-NDFS_phytoplankton_data_2021_ttest_df <- NDFS_phytoplankton_data_2021 %>% 
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-phyto_ttest <- t.test(log(total_biovolume)~site_region, NDFS_phytoplankton_data_2021_ttest_df, alternative="two.sided", var.equal=FALSE)
-phyto_ttest #no significant difference between upstream and downstream
-
-# t-test for zooplankton
-#t-test for upstream/downstream differences in total zooplankton
-zoop_cpue_ttest_df <- NDFS_zooplankton_data_2021 %>% 
-  group_by(site_region, station) %>% 
-  summarize(regional_total_cpue = mean(CPUE))
-
-zoop_ttest <- t.test(log(regional_total_cpue)~site_region, zoop_cpue_ttest_df, alternative="two.sided", var.equal=FALSE)
-zoop_ttest #no significant difference between regions
-
-#t-tests for upstream/downstream differences in zooplankton groups
-unique(NDFS_zooplankton_data_2021$category)
-
-zoop_group_ttest <- NDFS_zooplankton_data_2021 %>%
-  select(station, site_region, category, CPUE) %>% 
-  distinct() %>%
-  group_by(station, site_region, category) %>% 
-  summarize(total_cpue = mean(CPUE))
-
-# macrozooplankton
-macrozooplankton <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Macrozooplankton") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
-
-macrozooplankton_ttest <- t.test(total_cpue~site_region, macrozooplankton, alternative="two.sided", var.equal=FALSE)
-macrozooplankton_ttest #downstream higher
-
-# calanoids
-calanoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Calanoids") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
-  
-calanoid_ttest <- t.test(total_cpue~site_region, calanoids, alternative="two.sided", var.equal=FALSE)
-calanoid_ttest #downstream higher
-
-# cladocerans
-cladocerans <- NDFS_zooplankton_data_2021 %>% 
-  filter(category == "Cladocera") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
-
-cladoceran_ttest <- t.test(log(total_cpue)~site_region, cladocerans, alternative="two.sided", var.equal=FALSE)
-cladoceran_ttest #upstream higher
-hist(log(cladocerans$total_cpue)) # this is not normally distributed
-
-summary(cladoceran_ttest)
-summary(cladocerans)
-
-hist(residuals(cladoceran_ttest))
-
-qqnorm(residuals(cladoceran_ttest))
-
-# cyclopoids
-cyclopoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Cyclopoids") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
-
-cyclopoid_ttest <- t.test(log(total_cpue)~site_region, cyclopoids, alternative="two.sided", var.equal=FALSE)
-cyclopoid_ttest #not significantly different
-hist(log(cyclopoids$total_cpue)) # this is not normally distributed
-
-# harpacticoids
-harpacticoids <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Harpacticoids") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE)) 
-
-harpacticoid_ttest <- t.test(log(total_cpue)~site_region, harpacticoids, alternative="two.sided", var.equal=FALSE) # ttest isn't working for these
-harpacticoid_ttest #not significantly different
-hist(log(harpacticoids$total_cpue)) # this is not normally distributed
-
-# make site_region factor
-
-
-# microzoops
-microzoop <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Microzooplankton & Nauplii") %>%
-  group_by(site_region, station) %>%
-  summarize(total_cpue = mean(CPUE))
-
-microzoop_ttest<-t.test(log(total_cpue)~site_region, microzoop, alternative="two.sided", var.equal=FALSE)
-microzoop_ttest #not significantly different
-hist(log(microzoop$total_cpue)) # not sure if this is normal
-
-# qqplot to test normality?
-
-# t-test for phytoplankton
-unique(NDFS_phytoplankton_data_2021$group)
-
-# Diatoms
-diatoms <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Diatoms") %>%
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-diatoms_ttest <- t.test(log(total_biovolume)~site_region, diatoms, alternative="two.sided", var.equal=FALSE)
-diatoms_ttest #not significantly different
-hist(log(diatoms$total_biovolume)) # this is not normally distributed
-
-# Green Algae
-green_algae <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Green Algae") %>%
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-green_algae_ttest <- t.test(log(total_biovolume)~site_region, green_algae, alternative="two.sided", var.equal=FALSE)
-green_algae_ttest #not significantly different
-hist(log(green_algae$total_biovolume))
-
-# Cryptophytes
-cryptophytes <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Cryptophytes") %>%
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-cryptophytes_ttest <- t.test(log(total_biovolume)~site_region, cryptophytes, alternative="two.sided", var.equal=FALSE)
-cryptophytes_ttest #not significantly different
-hist(log(cryptophytes$total_biovolume))
-
-# Cyanobacteria
-cyanobacteria <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Cyanobacteria") %>%
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-cyanobacteria_ttest <- t.test(log(total_biovolume)~site_region, cyanobacteria, alternative="two.sided", var.equal=FALSE)
-cyanobacteria_ttest #not significantly different
-hist(log(cyanobacteria$total_biovolume))
-
-# Golden Algae
-golden_algae <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Golden Algae") %>%
-  group_by(sampling_time,site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-golden_algae_ttest <- t.test(log(total_biovolume)~site_region, golden_algae, alternative="two.sided", var.equal=FALSE) # not enough x observations
-golden_algae_ttest #not significantly different
-hist(log(golden_algae$total_biovolume))
-
-# Other
-other <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Other") %>%
-  group_by(site_region, station_code) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-other_ttest <- t.test(log(total_biovolume)~site_region, other, alternative="two.sided", var.equal=FALSE) # not enough x observations
-other_ttest #not significantly different
-hist(log(other$total_biovolume))
-
 # ANOVA analysis for figure 49####
 # Make the data frames for each "group" of phytoplankton, to automate this I will make a for loop function
 phyto_groups_ANOVA_df <- NDFS_phytoplankton_data_2021 %>%
   group_by(site_region, station_code, sampling_time) %>%
   summarize(total_biovolume = mean(biov_per_mL))
 
-two_way_phyto_groups <- aov(log(total_biovolume) ~ sampling_time + site_region, data = phyto_groups_ANOVA_df) # I shoudld do log for this too
-summary(two_way_phyto_groups) 
+interaction_two_way_phyto_groups <- lmer(log(total_biovolume) ~ sampling_time*site_region + (1|station_code), phyto_groups_ANOVA_df, REML = TRUE)
+#summary(interaction_two_way_phyto_groups)
+Anova(interaction_two_way_phyto_groups, 
+      type = "III")
 
-interaction_two_way_phyto_groups <- aov(log(total_biovolume) ~ sampling_time*site_region + station_code, data = phyto_groups_ANOVA_df)  
-summary(interaction_two_way_phyto_groups)
+# interaction_two_way_phyto_groups <- aov(log(total_biovolume) ~ sampling_time*site_region + station_code, data = phyto_groups_ANOVA_df)  
+# summary(interaction_two_way_phyto_groups)
 
 zoop_categories_ANOVA_df <- NDFS_zooplankton_data_2021 %>%
   group_by(site_region, station, sampling_time) %>%
   summarize(regional_total_cpue = mean(CPUE)) 
 
-two_way_zoop_categories <- aov(log(regional_total_cpue) ~ sampling_time + site_region, data = zoop_categories_ANOVA_df) # I shoudld do log for this too
-summary(two_way_zoop_categories) 
-
-interaction_two_way_zoop_categories <- aov(log(regional_total_cpue) ~ sampling_time*site_region + station, data = zoop_categories_ANOVA_df)  
+interaction_two_way_zoop_categories <- lmer(log(regional_total_cpue) ~ sampling_time*site_region + (1|station), zoop_categories_ANOVA_df, REML = TRUE)  
 summary(interaction_two_way_zoop_categories)
-
-
-# <><><><><><><><><
-diatoms_ANOVA_df <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Diatoms") %>%
-  group_by(site_region, station_code, sampling_time) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-# Run the one way ANOVA (for each row?) (if it's for each row, then I am going to have to make a for loop function for this as well)
-# # phytoplankton ANOVA
-# one_way_phyto_groups <- aov(log(total_biovolume) ~ sampling_time, data = phyto_groups_ANOVA_df) # I shoudld do log for this too
-# summary(one_way_phyto_groups) 
-# 
-# blocking_two_way_phyto_groups <- aov(log(total_biovolume) ~ sampling_time + site_region + station_code, data = phyto_groups_ANOVA_df)
-# summary(blocking_two_way_phyto_groups) # f-value and p-value don't even show up here. 
-
-# Phytoplankton AIC test
-# model_set_phyto_groups <- list(one_way_phyto_groups, two_way_phyto_groups, interaction_two_way_phyto_groups, blocking_two_way_phyto_groups)
-# model_names_phyto_groups <- c("one_way_phyto_groups", "two_way_phyto_groups", "interaction_two_way_phyto_groups", "blocking_two_way_phyto_groups")
-# aictab(model_set_phyto_groups, modnames = model_names_phyto_groups)
-# 
-# # zooplankton ANOVA
-# one_way_zoop_categories <- aov(log(regional_total_cpue) ~ sampling_time, data = zoop_categories_ANOVA_df) # I shoudld do log for this too
-# summary(one_way_zoop_categories) 
-
-blocking_two_way_zoop_categories <- aov(log(regional_total_cpue) ~ sampling_time + site_region + station, data = zoop_categories_ANOVA_df)
-summary(blocking_two_way_zoop_categories) # f-value and p-value don't even show up here.
-
-# zooplankton AIC test
-model_set_zoop_categories <- list(one_way_zoop_categories, two_way_zoop_categories, interaction_two_way_zoop_categories, blocking_two_way_zoop_categories)
-model_names_zoop_categories <- c("one_way_zoop_categories", "two_way_zoop_categories", "interaction_two_way_zoop_categories", "blocking_two_way_zoop_categories")
-aictab(model_set_zoop_categories, modnames = model_names_zoop_categories)
-
-# Cyanobacteria ANOVA
-cyanobacteria_ANOVA_df <- NDFS_phytoplankton_data_2021 %>%
-  filter(group == "Cyanobacteria") %>%
-  group_by(site_region, station_code, sampling_time) %>%
-  summarize(total_biovolume = mean(biov_per_mL))
-
-one_way_cyanobactera <- aov(log(total_biovolume) ~ sampling_time, data = cyanobacteria_ANOVA_df) # I shoudld do log for this too
-summary(one_way_cyanobactera) 
-
-two_way_cyanobactera <- aov(log(total_biovolume) ~ sampling_time + site_region, data = cyanobacteria_ANOVA_df) # I shoudld do log for this too
-summary(two_way_cyanobactera) 
-
-interaction_two_way_cyanobactera <- aov(log(total_biovolume) ~ sampling_time*site_region, data = cyanobacteria_ANOVA_df)  
-summary(interaction_two_way_cyanobactera)
-
-blocking_two_way_cyanobactera <- aov(log(total_biovolume) ~ sampling_time + site_region + station_code, data = cyanobacteria_ANOVA_df)
-summary(blocking_two_way_cyanobactera) # f-value and p-value don't even show up here.
-
-# Cyanobacteria AIC test
-model_set_cyanobactera <- list(one_way_cyanobactera, two_way_cyanobactera, interaction_two_way_cyanobactera, blocking_two_way_cyanobactera)
-model_names_cyanobactera <- c("one_way_cyanobactera", "two_way_cyanobactera", "interaction_two_way_cyanobactera", "blocking_two_way_cyanobactera")
-aictab(model_set_cyanobactera, modnames = model_names_cyanobactera)
-
-# Calanoids ANOVA
-calanoids_ANOVA_df <- NDFS_zooplankton_data_2021 %>%
-  filter(category == "Calanoids") %>%
-  group_by(site_region, station, sampling_time) %>%
-  summarize(regional_total_cpue = mean(CPUE) + 1) # quick and dirty fix to the problem I had before.
-
-one_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time, data = calanoids_ANOVA_df) # I shoudld do log for this too
-summary(one_way_calanoids) 
-
-two_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time + site_region, data = calanoids_ANOVA_df) # I shoudld do log for this too
-summary(two_way_calanoids) 
-
-interaction_two_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time*site_region, data = calanoids_ANOVA_df)  
-summary(interaction_two_way_calanoids)
-
-blocking_two_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time + site_region + station, data = calanoids_ANOVA_df)
-summary(blocking_two_way_calanoids) # f-value and p-value don't even show up here.
-
-# Calanoids AIC test
-model_set_calanoids <- list(one_way_calanoids, two_way_calanoids, interaction_two_way_calanoids, blocking_two_way_calanoids)
-model_names_calanoids <- c("one_way_calanoids", "two_way_calanoids", "interaction_two_way_calanoids", "blocking_two_way_calanoids")
-aictab(model_set_calanoids, modnames = model_names_calanoids)
- 
-#><><><><><><><><
-
-# diatom ANOVA
-one_way_diatoms <- aov(total_biovolume ~ sampling_time, data = diatoms_ANOVA_df)
-summary(one_way_diatoms) # small f-value and high p-value
-
-# Run the two way ANOVA
-two_way_diatoms <- aov(log(total_biovolume) ~ sampling_time + site_region, data = diatoms_ANOVA_df)
-summary(two_way_diatoms) # 
-  
-  interaction_two_way_diatoms <- aov(total_biovolume ~ sampling_time*site_region, data = diatoms_ANOVA_df)  
-  summary(interaction_two_way_diatoms)
-  
-  blocking_two_way_diatoms <- aov(total_biovolume ~ sampling_time + site_region + station_code, data = diatoms_ANOVA_df)
-  summary(blocking_two_way_diatoms) # f-value and p-value don't even show up here. 
-  
-two_way_phyto_groups <- aov(total_biovolume ~ sampling_time + site_region, data = phyto_groups_ANOVA_df)
-summary(two_way_phyto_groups) 
-  
-  interaction_two_way_phyto_groups <- aov(total_biovolume ~ sampling_time*site_region, data = phyto_groups_ANOVA_df)  
-  summary(interaction_two_way_phyto_groups)
-  
-  blocking_two_way_phyto_groups <- aov(total_biovolume ~ sampling_time + site_region + station_code, data = phyto_groups_ANOVA_df)
-  summary(blocking_two_way_phyto_groups) 
-  
-  
-  # AIC
-  
-  model_set_diatoms <- list(one_way_diatoms, two_way_diatoms, interaction_two_way_diatoms, blocking_two_way_diatoms)
-  model_names_diatoms <- c("one_way_diatoms", "two_way_diatoms", "interaction_two_way_diatoms", "blocking_two_way_diatoms")
-  aictab(model_set_diatoms, modnames = model_names_diatoms)
-    # two-way diatoms is the best model for this?
-  
-  # check for homoscedasticity
-  par(mfrow=c(2,2))
-  plot(two_way_diatoms)
-  par(mfrow=c(1,1))
-  
-    # may have to try the kruskall-wallis test instead
-  
-  # post-hoc test
-  tukey_two_way_diatoms <- TukeyHSD(two_way_diatoms)
-  tukey_two_way_diatoms  
-  
-  # Plot the results in a graph
-  
-# For figure 49:
-  #two-way ANOVA analysis with sampling period and site region as independent variables for each of the subplots
+Anova(interaction_two_way_zoop_categories, 
+      type = "III")
   
 # for figure 50: ####
   #one-way ANOVA analysis with sampling period as independent variable for each of the subplots
@@ -626,11 +342,13 @@ summary(two_way_phyto_groups)
   # Diatoms one-way ANOVA
   diatoms <- NDFS_phytoplankton_data_2021 %>%
     filter(group == "Diatoms") %>%
-    group_by(sampling_time,site_region, station_code) %>%
+    group_by(sampling_time, site_region, station_code) %>%
     summarize(total_biovolume = mean(biov_per_mL))
   
-  one_way_diatoms <- aov(log(total_biovolume) ~ sampling_time, data = diatoms)
-  summary(one_way_diatoms)
+  one_way_diatoms = lm(log(total_biovolume) ~ sampling_time, data = diatoms)
+  summary(one_way_diatoms)  
+  Anova(one_way_diatoms,
+        type = "II") 
   
   # Cryptophyte one-way ANOVA
   cryptophytes <- NDFS_phytoplankton_data_2021 %>%
@@ -638,8 +356,10 @@ summary(two_way_phyto_groups)
     group_by(sampling_time,site_region, station_code) %>%
     summarize(total_biovolume = mean(biov_per_mL))
   
-  one_way_cryptophytes <- aov(log(total_biovolume) ~ sampling_time, data = cryptophytes)
-  summary(one_way_cryptophytes)
+  one_way_cryptophytes = lm(log(total_biovolume) ~ sampling_time, data = cryptophytes)
+  summary(one_way_cryptophytes)  
+  Anova(one_way_cryptophytes,
+        type = "II") 
   
   # Cyanobacteria one-way ANOVA
   cyanobacteria <- NDFS_phytoplankton_data_2021 %>%
@@ -647,8 +367,10 @@ summary(two_way_phyto_groups)
     group_by(sampling_time,site_region, station_code) %>%
     summarize(total_biovolume = mean(biov_per_mL))
   
-  one_way_cyanobacteria <- aov(log(total_biovolume) ~ sampling_time, data = cyanobacteria)
-  summary(one_way_cyanobacteria)
+  one_way_cyanobacteria = lm(log(total_biovolume) ~ sampling_time, data = cyanobacteria)
+  summary(one_way_cyanobacteria)  
+  Anova(one_way_cyanobacteria,
+        type = "II") 
   
   # Green Algae one-way ANOVA
   green_algae <- NDFS_phytoplankton_data_2021 %>%
@@ -656,8 +378,10 @@ summary(two_way_phyto_groups)
     group_by(sampling_time,site_region, station_code) %>%
     summarize(total_biovolume = mean(biov_per_mL))
   
-  one_way_green_algae <- aov(log(total_biovolume) ~ sampling_time, data = green_algae)
-  summary(one_way_green_algae)
+  one_way_green_algae = lm(log(total_biovolume) ~ sampling_time, data = green_algae)
+  summary(one_way_green_algae)  
+  Anova(one_way_green_algae,
+        type = "II")
   
   
   #Zooplankton
@@ -667,8 +391,10 @@ summary(two_way_phyto_groups)
     group_by(site_region, sampling_time, station) %>%
     summarize(regional_total_cpue = mean(CPUE) + 1) 
   
-  one_way_calanoids <- aov(log(regional_total_cpue) ~ sampling_time, data = calanoids) # I shoudld do log for this too
-  summary(one_way_calanoids) 
+  one_way_calanoids = lm(log(regional_total_cpue) ~ sampling_time, data = calanoids)
+  summary(one_way_calanoids)  
+  Anova(one_way_calanoids,
+        type = "II")
   
   # Cladocera one-way ANOVA
   cladocera <- NDFS_zooplankton_data_2021 %>%
@@ -676,8 +402,10 @@ summary(two_way_phyto_groups)
     group_by(site_region, sampling_time, station) %>%
     summarize(regional_total_cpue = mean(CPUE)) 
   
-  one_way_cladocera <- aov(log(regional_total_cpue) ~ sampling_time, data = cladocera) # I shoudld do log for this too
-  summary(one_way_cladocera) 
+  one_way_cladocera = lm(log(regional_total_cpue) ~ sampling_time, data = cladocera)
+  summary(one_way_cladocera)  
+  Anova(one_way_cladocera,
+        type = "II")
   
   # Cyclopoids one-way ANOVA
   cyclopoids <- NDFS_zooplankton_data_2021 %>%
@@ -685,8 +413,10 @@ summary(two_way_phyto_groups)
     group_by(site_region, sampling_time, station) %>%
     summarize(regional_total_cpue = mean(CPUE)) 
   
-  one_way_cyclopoids <- aov(log(regional_total_cpue) ~ sampling_time, data = cyclopoids) # I shoudld do log for this too
-  summary(one_way_cyclopoids)
+  one_way_cyclopoids = lm(log(regional_total_cpue) ~ sampling_time, data = cyclopoids)
+  summary(one_way_cyclopoids)  
+  Anova(one_way_cyclopoids,
+        type = "II")
   
   # Harpacticoids one-way ANOVA
   harpacticoids <- NDFS_zooplankton_data_2021 %>%
@@ -694,8 +424,10 @@ summary(two_way_phyto_groups)
     group_by(site_region, sampling_time, station) %>%
     summarize(regional_total_cpue = mean(CPUE) + 1) # quick and dirty fix to the problem I had before.
   
-  one_way_harpacticoids <- aov(log(regional_total_cpue) ~ sampling_time, data = harpacticoids) # I shoudld do log for this too
-  summary(one_way_harpacticoids)
+  one_way_harpacticoids = lm(log(regional_total_cpue) ~ sampling_time, data = harpacticoids)
+  summary(one_way_harpacticoids)  
+  Anova(one_way_harpacticoids,
+        type = "II")
   
   # Microzooplanton & Nauplii one-way ANOVA
   microzoop_nauplii <- NDFS_zooplankton_data_2021 %>%
@@ -703,17 +435,10 @@ summary(two_way_phyto_groups)
     group_by(site_region, sampling_time, station) %>%
     summarize(regional_total_cpue = mean(CPUE)) # quick and dirty fix to the problem I had before.
   
-  one_way_microzoop_nauplii <- aov(log(regional_total_cpue) ~ sampling_time, data = microzoop_nauplii) # I shoudld do log for this too
-  summary(one_way_microzoop_nauplii)
-  #post-hoc tests if there is reason to.
-  
-  microzoop_model = lm(log(regional_total_cpue) ~ station + sampling_time, data = microzoop_nauplii)
-  summary(microzoop_model)  
-
-  library(car)  
-  
-  Anova(microzoop_model,
-        type = "II") 
+  one_way_microzoop_nauplii = lm(log(regional_total_cpue) ~ sampling_time, data = microzoop_nauplii)
+  summary(one_way_microzoop_nauplii)  
+  Anova(one_way_microzoop_nauplii,
+        type = "II")
   
 
   
