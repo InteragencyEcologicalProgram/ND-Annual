@@ -15,7 +15,7 @@ library(patchwork)
 rm(list=ls()) #clear all objects in environment
 
 setwd("Z:/Water Quality Evaluation Section/Projects and Programs/North Delta FLow Action/2022/NDFS 2022 report")
-
+getwd()
 
 ##### 1. Import and download data ---------------------------------------------
 
@@ -158,7 +158,7 @@ plt_upstream <- df_chla_daily_avg %>%
   ts_cust_format +
   scale_x_date(labels = label_date_short(c(NA, "%b", "%d", NA)))+
   scale_y_continuous(
-    name = "Chlorophyll (µg/L)", 
+    name = "Chlorophyll (Âµg/L)", 
     limits = c(y_min, y_max), 
     labels = label_comma()
   ) +
@@ -182,7 +182,7 @@ plt_downstream <- df_chla_daily_avg %>%
   scale_x_date(labels = label_date_short(c(NA, "%b", "%d", NA)))+
   scale_y_continuous(
     name = NULL, 
-    limits = c(y_min, 4), #customized y max based on this year's data
+    limits = c(y_min, y_max), #customized y max based on this year's data
     labels = label_comma()
   ) +
   ggtitle("Downstream Region") + 
