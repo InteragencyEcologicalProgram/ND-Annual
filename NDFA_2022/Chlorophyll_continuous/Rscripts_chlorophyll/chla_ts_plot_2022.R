@@ -1,6 +1,6 @@
 #Project: NDFS
 #Script to import data from NWIS, prepare and plot average chlorophyll fluorescence data.
-#LIS, STTD, I80 and RD22 data were downloaded from Hydstra and were formatted & cleaned in separate R file called Clean_Hydstra
+#LIS, STTD, I80 and RD22 data were downloaded from Hydstra and were formatted & cleaned in separate R file called Clean_Hydstra.R
 #9/21/2022
 #Author: Elena Huynh, adapted script written by Dave Bosworth
 
@@ -28,13 +28,13 @@ lib <- readNWISuv("11455315", parameterCd = "32316", start_date, end_date, tz = 
 ryi <- readNWISuv("11455385", parameterCd = "32316", start_date, end_date, tz = "Etc/GMT+8")
 
 
-#import cleaned data saved from Hydstra
+#import cleaned data saved from Hydstra (processed in Clean_Hydstra.R)
 lis <- read.csv("LIS_chl_clean.csv")
 i80 <- read.csv("I80_chl_clean.csv")
 sttd <- read.csv("STTD_chl_clean.csv") 
 rd22 <- read.csv("RD22_chl_clean.csv") 
   
-#import data from CEMP
+#import data from CEMP--requested data from continuous EMP group
 rvb <- read.csv("RVB_raw_chl.csv", skip = 4)
 
 
@@ -89,7 +89,7 @@ rvb_clean <- rvb %>%
 # Bind data together
 df_chla <- bind_rows(usgs_clean, lis_clean, rd22_clean, sttd_clean, i80_clean, rvb_clean)
 
-# Create a vector for the factor order of StationCode
+# Create a vector for the factor order of StationCode; note that other years may have more stations
 sta_order <- c(
   "RD22",
   "I80",
