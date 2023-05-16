@@ -74,6 +74,7 @@ lis_flows19_2<-lis_flows19%>%mutate(Month = month(datetime), #create a month and
   group_by(Month, Day)%>%
   mutate(daily_mean_flow=mean(parameter_value, na.rm=TRUE))%>%
   distinct(date, daily_mean_flow, .keep_all=TRUE)
+
 #calculating pulse flow period ####
 #consecutive days of net positive flow: kinda works... flow period should just be Sept 21 and 22, 2022
 lis_flow_period22 <- lis_flows22_2 %>% 

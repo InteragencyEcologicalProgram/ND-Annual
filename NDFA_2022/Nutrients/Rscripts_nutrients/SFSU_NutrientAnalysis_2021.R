@@ -1,5 +1,5 @@
 rm(list = ls())
-setwd("C:/Users/mminer/Documents/R_Data_Analysis/NDFS/Nutrients_2021")
+#setwd("C:/Users/mminer/Documents/R_Data_Analysis/NDFS/Nutrients_2021")
 
 #libraries 
 library(tidyverse) 
@@ -25,7 +25,7 @@ library(car)
 library(knitr)
 
 #load data
-sfsu_nut <- read.csv("C:/Users/mminer/Documents/R_Data_Analysis/NDFS/Nutrients_2021/data/SFSU_nutrients_2021.csv")
+sfsu_nut <- read.csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/NDFA_2022/Nutrients/Data_nutrients/SFSU_nutrients_2021.csv")
 
 #select relevant columns, clean df 
 sfsu_nut <- dplyr::select(sfsu_nut, "Date","Time","Station","silica","nitrate_nitrite","nitrite","orthophosphate","ammonia","ammonia_conversion_mg_L")
@@ -40,7 +40,7 @@ upstream<-c("I80TD", "I80-TD", "RD22", "RMB", "LIS", "STTD", "WWT", "DWT")
 sfsu_nut$region <- ifelse(sfsu_nut$Station %in% downstream, "Downstream",
                           ifelse(sfsu_nut$Station %in% upstream, "Upstream", "Middle Sac River"))
 
-sfsu_nut$region <- factor(sfsu_nut$region, levels = c("Upstream","Downstream","Middle Sac River"))
+sfsu_nut$region <- factor(sfsu_nut$region, levels = c("Upstream","Downstream","Middle Sac River")) # Done like this to organize them in plots? -Juan
 
 sfsu_nut$Station = as.factor(sfsu_nut$Station)
 
@@ -48,10 +48,11 @@ sfsu_nut$Station = as.factor(sfsu_nut$Station)
 nut <- sfsu_nut %>% 
   mutate(period = case_when(
     Date <= ymd_hms("2021-09-11 00:00:00") ~ "Before",
-    Date >= ymd_hms ("2021-09-11 01:00:00") &
-      Date <= ymd_hms("2021-09-15 00:00:00") ~ "During",
+    Date >= ymd_hms ("2021-09-11 01:00:00") & Date <= ymd_hms("2021-09-15 00:00:00") ~ "During",
     Date >= ymd_hms("2021-09-15 01:00:00") ~ "After"))
+
 nut$period=as.factor(nut$period)
+
 nut %>% count(Station)
 
 nut <- nut %>% reorder_levels(period, order = c("Before", "During", "After"))
@@ -64,13 +65,15 @@ nut2 <- nut %>% pivot_longer(cols = c("silica","nitrate_nitrite","nitrite","orth
 
 # Subset by analyte for stats tests --> all of these are in umol NOT mg/L
 amm <- nut2[nut2$analyte == "ammonia", ]
-  amm_statsum <- amm %>% 
-    group_by(period, region) %>% get_summary_stats(result, type = "mean_sd")
-  
+amm_statsum <- amm %>% 
+  group_by(period, region) %>% 
+  get_summary_stats(result, type = "mean_sd") 
+
 silica <- nut2[nut2$analyte == "silica", ]
-  silica_statsum <- silica %>% 
-    group_by(period, region) %>% get_summary_stats(result, type = "mean_sd")
-  
+silica_statsum <- silica %>% 
+  group_by(period, region) %>% 
+  get_summary_stats(result, type = "mean_sd")
+
 nit <- nut2[nut2$analyte == "nitrate_nitrite", ]
   nit_statsum <- nit %>% 
      group_by(period, region) %>% get_summary_stats(result, type = "mean_sd")
@@ -84,6 +87,7 @@ nut_statsum <- nut %>%
   filter(region!="Middle Sac River") %>% 
   group_by(period,region) %>% 
   get_summary_stats(type = "mean_sd")
+  # Will use this method for the output into word docs
 
 
 #format for plotting: 

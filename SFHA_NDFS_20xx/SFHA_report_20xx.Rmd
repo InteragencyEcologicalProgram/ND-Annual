@@ -1,0 +1,37 @@
+---
+title: "Summer Fall Habitat Action Report Template"
+author: "Juan De La Torre"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Loading Libraries}
+
+```
+
+```{r Establishing Global Variables}
+
+```
+
+
+## Flow Figures and Statistics
+
+```{r flow}
+source("scripts/CDEC_flow_figs_stats.R")
+```
+
+## Water Quality Figures and Statistics
+
+## Nutrients Figures and Statistics
+
+## Plankton Figures and Statistics
+
+### Zooplankton
+
+### Phytoplankton
+
+## Cholorophyll Figures and Statistics

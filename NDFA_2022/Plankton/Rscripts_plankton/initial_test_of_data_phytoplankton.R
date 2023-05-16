@@ -23,6 +23,8 @@ phytoplankton_tax_data <- read_csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annu
   clean_names()
 
 ### Removing duplicate sites by creating a site object. Eventually this will be part of the metadata pipeline
+
+  # this goes into the automatic filtering
 NDFS_station_codes <- c("BL5", "I80", "LIB", "LIS", "RCS", "RD22", "RMB", "RVB", "RYI", "STTD")
 
 NDFS_phytoplankton_data_2021 <- NDFS_phytoplankton_data_2021[NDFS_phytoplankton_data_2021$station_code %in% NDFS_station_codes,]
@@ -54,7 +56,7 @@ zoop_field_data <- read_csv("C:/Users/jtorre/Desktop/Github_Repos/ND-Annual/NDFA
   clean_names()
 
 zoop_field_data <- zoop_field_data %>%
-  select("measuring_program_short_name", "sampling_event_date", "sampling_area_number", "flow_meter_start_150", "flow_meter_end_150", "net_type") #%>%
+  dplyr::select("measuring_program_short_name", "sampling_event_date", "sampling_area_number", "flow_meter_start_150", "flow_meter_end_150", "net_type") #%>%
   #rename("date" = "sampling_event_date", "station" = "sampling_area_number")
 
 zoop_field_data$sampling_event_date <- as.Date(zoop_field_data$sampling_event_date, format="%m/%d/%Y")
@@ -65,7 +67,7 @@ zoop_field_data <- zoop_field_data[zoop_field_data$net_type == 150,]
 # CONSTRUCTING THE PLANKTON METADATA 
 
 NDFS_zooplankton_data_2021 <- left_join(NDFS_zooplankton_data_2021, zoop_field_data, by = c("date" = "sampling_event_date", "station" = "sampling_area_number")) %>%
-  select(c("project", "station", "date", "flow_meter_start_150", "flow_meter_end_150","category", "taxon", "count", "subsample", "v1_ml", "sub1_ml", "v2_ml", "sub2_ml"))#, "sampling_time", "region", "site_region"))
+  dplyr::select(c("project", "station", "date", "flow_meter_start_150", "flow_meter_end_150","category", "taxon", "count", "subsample", "v1_ml", "sub1_ml", "v2_ml", "sub2_ml"))#, "sampling_time", "region", "site_region"))
 
 # CONSTRUCTING THE PLANKTON METADATA 
 

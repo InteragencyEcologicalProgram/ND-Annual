@@ -7,6 +7,7 @@ setwd("C:/Users/mminer/Documents/R_Data_Analysis/NDFS/WaterQuality_2021")
 # "during" flow pulse period is Sept. 11-14
 
 # read in excel file - kind of funky, but need to tell R the type of data in each column and skip first 
+  # lets convert from excel to CSV before loading into R - juan
 physical_wq <- read_excel("data/NDFS_WQ_Data_2021.xlsx", 
                            col_types = c("numeric", "numeric", "text", "text", "numeric", "text", "date", 
                                           "date", "numeric", "text", "text","text", "text", "text", "text", "text", 
