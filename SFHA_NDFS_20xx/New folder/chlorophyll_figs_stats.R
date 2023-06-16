@@ -1,1 +1,0 @@
-# Chlorophyll figures and statistics

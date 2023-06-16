@@ -9,29 +9,793 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r Loading Libraries}
+```{r, include=FALSE}
+
+# installing libraries
+
+# Loading Libraries
+rm(list = ls())
+
+lapply(c("tidyverse", "lubridate", "viridis", 
+         "ggpubr", "remotes", "scales",
+         "data.table","rstatix","gridExtra",
+         "janitor","lme4","psych",
+         "nlme","lattice","lmerTest",
+         "visreg","emmeans","multcomp",
+         "multcompView","readxl", "CDECRetrieve", 
+         "here", "dataRetrieval", "patchwork"), require, character.only = TRUE)
+
+#rstatix
+#gridExtra
 
 ```
 
 ```{r Establishing Global Variables}
+# Input dates here ----
+date_1 = NA # as.Date("2022-06-01")
+date_2 = NA # as.Date("2022-10-31")
+
+# Pulse period dates ----
+pp_cur_year_start <- NA # as.Date("2022-06-01") 
+pp_cur_year_end <- NA # as.Date("2022-10-31")
+
+pp_pre_year_start <- NA # as.Date("2021-09-11")
+pp_pre_year_end <- NA # as.Date("2021-09-15")
+
+# USGS data retrieval dates
+USGS_start_date <- NA # as.Date("2022-07-27")
+USGS_end_date <- NA # as.Date("2022-10-03")
+```
+
+```{r Global Objects}
+# Site names go here ----
+
+all_sites <- c("RVB", "RYI", "LIB", "PRS", "BL5","I80", "RD22", "RMB","RCS", "LIS", "STTD", "WWT", "DWT")
+
+NDFS_station_codes <- c("BL5", "I80", "LIB", "LIS", "RCS", "RD22", "RMB", "RVB", "RYI", "STTD")
+
+downstream <- c("RVB","RYI",  "LIB", "PRS", "BL5") #rename downstream_sites
+upstream <- c("I80", "RD22", "RMB","RCS", "LIS", "STTD", "WWT", "DWT")
+
+## Should be a df that has site names and their relevant information for API pulls
+site_name <- c("BL5 -Below Toe Drain", "Toe Drain@ I-80", "Liberty at S End", 
+               "Toe Drain YB LISBON", "Ridge Cut Slough", "Toe Drain at Rd. 22",
+               "Rominger Bridge", "	RVB - Rio Vista", "RYI - Cache Slough",
+               "Toe Drain at STTD", "Sacramento River @ Sherwood Harbor")
+
+site_code <- c("BL5", "I80", "LIB", 
+               "LIS", "RCS", "RD22", 
+               "RMB", "RVB", "RYI", 
+               "STTD", "SHER")
+
+discrete_number <- c("B9D81651399", "A0D83441350", "B9D81450411", 
+                     "B9D82851352", NA, "A0D84061386",
+                     "A0C85051515", "B9D80960412", "B9D81281402",
+                     "A0D82120386", "A0200000")
+
+continuous_number <- c("B9D81651399", "A0D83441350", NA, 
+                       "B9156000", NA, "A0D84061386",
+                       "A0C85051515", "B91212", NA,
+                       "A0D82120386", NA)
+
+downstream <- c(TRUE, FALSE, TRUE, 
+                FALSE, FALSE, FALSE, 
+                FALSE, TRUE, TRUE, 
+                FALSE, FALSE)
+
+NDFS_site_df <- data.frame(site_name, site_code, discrete_number, continuous_number, downstream)
+
+CDEC_df_of_interest <- 1
+# This is where this block should end ---- 
+```
+
+```{r Helper Functions}
+# helper functions
+
+# this makes a dataframe for pulse periods, it needs the input from one df from generate_CDEC_CFS_LIST
+generate_pulse_periods <- function(df) {
+  pulse_periods_df <- df %>%
+    group_by(return_rle_id) %>%
+    slice_max(n = 1, date) %>%
+    filter(consec_net_pos > 1) %>%
+    mutate(max_date = date,
+           min_date = date %m-% days(consec_net_pos - 1)) %>%
+    dplyr::select(min_date, max_date, consec_net_pos)
+  
+  return(pulse_periods_df)
+}
+
+range_of_pulse_period <- function(df) {
+  
+  filter_df <- df %>%
+    subset(month(df$min_date) >= 6 & month(df$min_date) < 11) 
+  
+  range_values_df <- subset(filter_df, consec_net_pos == max(filter_df$consec_net_pos),
+                           select=c(min_date, max_date))
+  return(range_values_df)
+  
+}
+
+```
+
+```{r CDEC Lisbon Flow}
+# Source data
+cdec_data = NULL
+
+# Explain what the code is doing
+generate_CDEC_CFS_LIST <- function(years = 5){
+  
+  n <- years - 1
+  
+  CDEC_CFS_DF_list = list()
+
+  for (i in 0:n) {
+    
+    CDEC_CFS_DF <- CDECRetrieve::cdec_query(station = "LIS",                    # query CDECRetrieve
+                             sensor_num = "20", 
+                             dur_code = "E", 
+                             start_date = date_1 %m-% years(i), 
+                             end_date = date_2 %m-% years(i)) %>%               # filter and format query
+      dplyr::mutate(location_id = as.factor(location_id)) %>% 
+      dplyr::select(datetime, location_id, parameter_value) %>% 
+      dplyr::mutate(Month = month(datetime), # create a month and year variable, why?
+             Year = year(datetime),
+             Day = day(datetime),
+             Hour= hour(datetime)) %>%
+      tidyr::separate(datetime, into = c("date", "time"), sep = " ") %>%
+      dplyr::select(!time) %>% # you can also drop the parameter value, it doesn't matter anymore?
+      dplyr::group_by(Month, Day) %>%
+      dplyr::mutate(daily_mean_flow = mean(parameter_value, na.rm = TRUE)) %>%
+      dplyr::distinct(date, daily_mean_flow, .keep_all = TRUE) %>%              # calculating flow pulse period
+      dplyr::group_by(return_rle_id = {
+        return_rle_id = rle(daily_mean_flow > 0); 
+        rep(seq_along(return_rle_id$lengths), return_rle_id$lengths)
+      }) %>%
+      dplyr::mutate(consec_net_pos = ifelse(daily_mean_flow <= 0, 
+                                     NA, 
+                                     seq_along(return_rle_id))) %>% 
+      dplyr::ungroup() %>%
+      dplyr::mutate(date = as.POSIXct(date)) %>%
+      dplyr::mutate(md = format(date, "%m/%d")) %>%
+      dplyr::mutate(md = as.POSIXct(md, format = "%m/%d"))
+    
+    CDEC_CFS_DF_list[[length(CDEC_CFS_DF_list)+1]] <- CDEC_CFS_DF
+    
+  }
+  
+  return(CDEC_CFS_DF_list)
+  
+}
+
+CDEC_CFS_list <- generate_CDEC_CFS_LIST()
+
+####----
+fig_34 <- function(df) {
+  
+  pulse_periods_df <- generate_pulse_periods(df)
+  
+  fig_34 <- purrr::reduce(1:nrow(pulse_periods_df),
+                          ~ .x + geom_rect(fill = "dimgrey", alpha = 0.01,
+                                           xmin = pulse_periods_df[.y,]$min_date,
+                                           xmax = pulse_periods_df[.y,]$max_date,
+                                           ymin = -Inf, ymax = Inf),
+                          .init = ggplot(df, aes(x = date , y = daily_mean_flow))) +
+    geom_point(pch=20, size=1, color="black") +
+    geom_smooth(size=1, color="blue", method="loess", span=0.1) + 
+    geom_hline(yintercept = 0, linetype = 3) +
+    scale_x_datetime("Date (2022)", breaks = date_breaks("1 week"), labels = date_format("%b %d")) + 
+    ylab("Flow (CFS)") +
+    theme(legend.position = c(0.8, 0.9)) +
+    theme_bw() +
+    theme(plot.title = element_text(hjust = 0.5, size=20)) +
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
+    theme(axis.text.x=element_text(size=rel(1.5)), axis.text.y=element_text(size=rel(1.5)), 
+          axis.title.x = element_text(size=15), axis.title.y = element_text(size=15)) +
+    theme(axis.text.x=element_text(angle=45, hjust = 1))
+  
+}
+
+fig_34_plot <- fig_34(CDEC_CFS_list[[1]])
+
+fig_34_plot
+
+#### -----
+fig_35 <- function(list) {
+  
+  fig_35 <- purrr::reduce(1:length(list),
+                                 ~ .x + geom_line(data = list[[.y]], 
+                                                  aes(x = md, y = daily_mean_flow, color = Year), 
+                                                  size = 1),
+                                 .init = ggplot()) +
+    geom_hline(yintercept = 0, linetype = 3) +
+    scale_x_datetime("",breaks=date_breaks("1 week"), labels=date_format("%b %d"))+#, limits = lims)+
+    # scale_color_viridis(option = "A") +
+    scale_color_viridis(option = "D", discrete = FALSE)+
+    ylab("Flow (CFS)")+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())+
+    theme(axis.text.x=element_text(size=rel(1.5)), axis.text.y=element_text(size=rel(1.5)), 
+          axis.title.x = element_text(size=20), axis.title.y = element_text(size=15))+
+    theme(axis.text.x=element_text(angle=45, hjust = 1))+
+    theme(legend.position = "bottom", 
+          legend.title = element_blank(), 
+          legend.direction = "horizontal", 
+          legend.box.spacing = unit(-0.75, "cm"), 
+          legend.text = element_text(size = rel(1.25), angle = 45))
+  
+  return(fig_35)
+  
+}
+
+fig_35_plot <- fig_35(CDEC_CFS_list)
+
+fig_35_plot
+```
+
+```{r Water Quality, fig.align="center", fig.width = 6, fig.height = 8.5}
+
+# Set file name here
+physical_wq_file <- "" # example: "NDFS_WQ_Data_2021.csv"
+
+physical_wq <- read_csv(paste0("data/water_quality/", physical_wq_file), skip = 1) %>%
+  clean_names() 
+
+# format and filter file
+
+physical_wq <- physical_wq %>%
+  subset(select = -c(run_number, run_name))%>%
+  filter(!row_number() %in% c(1)) %>% 
+  mutate_at(c("secchi", "water_temp", "do_probe", "sp_cond", "ec", "p_h", "turb"), as.numeric) %>% # this doesn't need to be here
+  mutate(wdl_sam_collection_date = as.Date(wdl_sam_collection_date, format="%m/%d/%Y")) %>% # I don't know if this needs to be here
+  pivot_longer(cols = c("secchi", "water_temp", "do_probe", "sp_cond", "ec", "p_h", "turb"), 
+               names_to = "Analyte",
+               values_to = "Result") %>%
+  dplyr::select("measuring_program_name", "station_name", "sampling_number_event", "wdl_sam_collection_date", "collection_time", "Analyte", "Result") %>%
+  mutate(region = case_when(
+    station_name %in% downstream ~ "Downstream",
+    station_name %in% upstream ~ "Upstream",
+    TRUE ~ "Middle Sac River")) %>%
+  mutate(pulse_period = case_when( # THIS NEEDS TO BE AUTOMATED
+    wdl_sam_collection_date <= pp_pre_year_start ~ "Before",
+    wdl_sam_collection_date >= ymd_hms ("2021-09-11 01:00:00") & wdl_sam_collection_date <= ymd_hms("2021-09-15 00:00:00") ~ "During",
+    wdl_sam_collection_date >= pp_pre_year_end ~ "After")) %>%
+  dplyr::filter(!(Analyte == "sp_cond" & Result == 10000.00)) %>% # QA NEEDS TO BE AUTOMATED
+  dplyr::filter(!(Analyte == "turb" & Result == 240.50)) %>% # QA NEEDS TO BE AUTOMATED
+  dplyr::filter(!(region == "Middle Sac River")) %>%
+  dplyr::filter(!(Analyte == "ec")) %>%
+  group_by(Analyte, region, pulse_period, Result) %>%
+  summarize(wq_mean=mean(Result, na.rm=TRUE), wq_sd=sd(Result, na.rm=TRUE)) 
+  
+  
+# factor
+physical_wq$pulse_period <- factor(physical_wq$pulse_period, levels = c("Before", "During", "After"))
+physical_wq$region <- factor(physical_wq$region, levels = c("Upstream", "Downstream"))
+physical_wq$Analyte <- factor(physical_wq$Analyte, levels = c("sp_cond", "do_probe", "p_h", "secchi", "water_temp", "turb"))
+#physical_wq$station_name = as.factor(physical_wq$station_name)
+  
+# Generating plot
+
+## create accurate/pretty labels for wq figure below
+wq.labs <- c("Conductivity \n(uS/cm)", 
+             "Dissolved \nOxygen (mg/L)",
+             "pH", 
+             "Secchi \nDepth (m)",
+             "Temperature \n(°C)",
+             "Turbidity \n(FNU)")
+names(wq.labs) <- c("sp_cond",
+                    "do_probe",
+                    "p_h",
+                    "secchi",
+                    "water_temp",
+                    "turb") 
+
+# GGPLOT
+
+# This is the right data and idea, I just need to fix it
+  ## The order of the wq parameters is wrong
+  ## Upstream and downstream is switched
+  ## I need to get rid of extreme outliers
+
+fig_36 <- ggplot(physical_wq, aes(x=pulse_period, y=Result, fill=pulse_period)) +
+  geom_boxplot() +
+  stat_boxplot(geom = "errorbar")+
+  scale_fill_viridis(discrete = TRUE, option="A") +
+  labs(x = "Flow Pulse Period", y = "Mean Value", fill = "Flow Pulse Period") +
+  theme_bw() + 
+  theme(legend.position = "none") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + 
+  theme(axis.title.x = element_text(size=15), axis.title.y = element_text(size=15), 
+        axis.text.x = element_text(size=12), axis.text.y = element_text(size=12), strip.text=element_text(size=12))+
+  facet_grid(Analyte~region, scales = "free_y", labeller = labeller(Analyte = wq.labs)) 
+  
+fig_36
+
+```
+
+```{r Nutrients, fig.align="center", fig.width = 6, fig.height = 8.5}
+# This only works if the data that we receive comes in the same structure
+
+# Dugdale-Wilkerson Lab at San Francisco State University nutrients.
+
+# link to original file
+nutrients_file <- "" # example: "SFSU_nutrients_2021.csv"
+
+sfsu_nutrients <- read.csv(paste0("data/nutrients/", nutrients_file)) %>%
+  clean_names()
+
+# filtering ----
+sfsu_nutrients <- sfsu_nutrients %>%
+  dplyr::select("date","time","station","silica","nitrate_nitrite","nitrite","orthophosphate","ammonia","ammonia_conversion_mg_l") %>%
+  mutate_at(c("silica","nitrate_nitrite","nitrite","orthophosphate","ammonia","ammonia_conversion_mg_l"),as.numeric) %>%
+  mutate(date = as.Date(date, format = "%m/%d/%Y")) %>%
+  mutate(region = case_when(
+    station %in% downstream ~ "Downstream",
+    station %in% upstream ~ "Upstream",
+    TRUE ~ "Middle Sac River"
+  )) %>%
+  mutate(pulse_period = case_when( # This needs to be automated...
+    date <= pp_pre_year_start ~ "Before",
+    date >= ymd_hms ("2021-09-11 01:00:00") & date <= ymd_hms("2021-09-15 00:00:00") ~ "During",
+    date >= pp_pre_year_end ~ "After")) %>%
+  pivot_longer(cols = c("silica","nitrate_nitrite","nitrite","orthophosphate","ammonia","ammonia_conversion_mg_l"), names_to = "analyte", values_to = "result") %>%
+  dplyr::filter(!(analyte == "nitrite")) %>%
+  dplyr::filter(!(analyte == "ammonia_conversion_mg_l")) %>%
+  dplyr::filter(!(region == "Middle Sac River"))
+
+# factors
+sfsu_nutrients$region <- factor(sfsu_nutrients$region, levels = c("Upstream","Downstream"))
+
+sfsu_nutrients$pulse_period <- factor(sfsu_nutrients$pulse_period, levels = c("Before", "During", "After"))
+
+sfsu_nutrients$station = factor(sfsu_nutrients$station)
+
+# Make labels
+nut.labs <- c("Ammonia",
+              "Nitrate/ Nitrite",
+              "ortho-\nPhosphate",
+              "Silica")
+
+names(nut.labs) <- c("ammonia", 
+                     "nitrate_nitrite", 
+                     "orthophosphate",
+                     "silica")
+
+# Why did we use the SFSU nutrients instead of the other ones?
+
+# GGPLOT
+
+nut_plot <- ggplot(sfsu_nutrients, aes(x = pulse_period, y = result, fill = pulse_period))+
+  geom_boxplot()+
+  stat_boxplot(geom = "errorbar")+
+  labs(y="Analyte Concentration (μmol)", x = "Flow Pulse Period", fill = "Flow Period")+
+  theme(axis.text.x = element_text(angle = 45, hjust=1))+
+  guides(fill= "none")+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())+
+  theme(axis.title.x = element_text(size=15), axis.title.y = element_text(size=15), 
+        axis.text.x = element_text(size=12), axis.text.y = element_text(size=12), 
+        strip.text=element_text(size=12))+
+  # ylim(0,30)+
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  facet_grid(analyte~region, scales = "free_y",labeller = labeller(analyte = nut.labs))
+
+nut_plot
+
+# ammonia, upstream, before is off from the one that we submitted, and its because in the one that we submitted the outliers are included in the boxplot, but in this one the outliers are marked as such... will have to think about this later but for now its okay.
+
+```
+
+```{r Phytoplankton and Zooplankton}
+# Pulling phytoplankton and zooplankton data
+
+## Phytoplankton data
+NDFS_phytoplankton_data_file <- "" # example: "20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv"
+
+NDFS_phytoplankton_data <- read_csv(paste0("data/plankton/", NDFS_phytoplankton_data_file), show_col_types = FALSE) %>%
+  clean_names()
+
+## Phytoplankton taxonomic table
+phytoplankton_taxonomic_table <- read_csv("data/plankton/phyto_group_classification.csv") %>%
+  clean_names()
+
+## Joining the phytoplankton tables
+complete_phyto_data <- left_join(NDFS_phytoplankton_data, phytoplankton_taxonomic_table, by = "genus")
+
+# Pulling zooplankton data
+zooplankton_folder_name <- "" # example: "20211115 YB Zooplankton ID Data Sheet - SAMPLES 67-143 - Contract 4600012453_EditedCOPY"
+
+zooplankton_file_names <- dir(paste0("data/plankton/", zooplankton_folder_name), 
+                  pattern = "*150um.csv", 
+                  full.names = TRUE)
+
+NDFS_zooplankton_data <- do.call(rbind, lapply(zooplankton_file_names, read.csv)) %>%
+  clean_names()
+
+NDFS_zooplankton_data$date <- as.Date(NDFS_zooplankton_data$date)
+
+zoop_field_data_file <- "" # example: "NDFS_zoop_field_data.csv"
+
+zoop_field_data <- read_csv(paste0("data/plankton/", zoop_field_data_file), show_col_types = FALSE, skip = 1) %>%
+  clean_names()
+
+zoop_field_data$sampling_event_date <- as.Date(zoop_field_data$sampling_event_date, format="%m/%d/%Y")
+
+NDFS_zooplankton_data <- left_join(NDFS_zooplankton_data, zoop_field_data, 
+                                        by = c("date" = "sampling_event_date", 
+                                               "station" = "sampling_area_number")) %>%
+  dplyr::select(c("project", "station", "date", 
+           "flow_meter_start_150", "flow_meter_end_150",
+           "category", "taxon", "count", 
+           "subsample", "v1_ml", "sub1_ml", 
+           "v2_ml", "sub2_ml"))#, "sampling_time", "region", "site_region"))
+
+# Filtering and formatting phytoplankton data
+
+filtered_complete_phytoplankton_data <- complete_phyto_data %>%
+  rename(total_cells = number_of_cells_per_unit) %>%
+  mutate(sample_date = as.Date(sample_date, format = "%m/%d/%Y")) %>%
+  mutate(sampling_time = case_when( # CREATING "sampling_time" COLUMN
+    sample_date < as.Date("2021-09-11") ~ "Before", # these are the lines that need to be automated
+    sample_date >= as.Date("2021-09-11") & sample_date <= ("2021-09-14") ~ "During",
+    sample_date > ("2021-09-14") ~ "After",
+    TRUE ~ "Error")) %>% # Error if any dates are wrong 
+  filter(station_code %in% NDFS_station_codes) %>%
+  mutate(region = case_when( # CREATING "region" COLUMN
+    station_code == "RMB"|station_code == "RCS" ~ "Colusa Drain/Ridge Cut",
+    station_code == "RD22"|station_code == "I80" ~ "Upper Yolo Bypass",
+    station_code == "LIS"|station_code == "STTD" ~ "Lower Yolo Bypass",
+    station_code == "BL5"|station_code == "LIB" ~ "Cache Slough Complex",
+    station_code == "RYI"|station_code == "RVB" ~ "Lower Sac River",
+    station_code == "SHR" ~ "Sherwood Harbor",
+    TRUE ~ "Error")) %>% # Error if any station codes are wrong 
+  mutate(site_region = case_when(
+    region == "Colusa Drain/Ridge Cut" | region == "Upper Yolo Bypass" | region == "Lower Yolo Bypass" ~ "Upstream region",
+    region == "Cache Slough Complex" | region == "Lower Sac River" ~ "Downstream region",
+    region == "Sherwood Harbor" ~ "Control region",
+    TRUE ~ "Error")) %>% #Error if any regions are wrong
+  rowwise() %>%
+  mutate(biov_avg = mean(c_across(biovolume_1:biovolume_10), na.rm = TRUE)) %>%
+  #mutate(biov_avg = apply(complete_phyto_data[,c(31:40)], 1, mean, na.rm = TRUE)) %>% # Average all 10 biovolume measurements for each taxon (BioV.Avg)
+  mutate(density = unit_abundance * factor) %>% # Calculate unit abundance per mL (Density)
+  mutate(biov_per_mL = total_cells * biov_avg * factor) # Calculate Biovolume density (per mL) per Flynn_Brown memo
+
+filtered_complete_phytoplankton_data$group <- replace(filtered_complete_phytoplankton_data$group, filtered_complete_phytoplankton_data$group == "Dinoflagellates", "Other")
+filtered_complete_phytoplankton_data$group <- replace(filtered_complete_phytoplankton_data$group, is.na(filtered_complete_phytoplankton_data$group), "Other")
+filtered_complete_phytoplankton_data <- filtered_complete_phytoplankton_data %>%
+  filter(group != 'Other') %>%
+  filter(group != "Golden Algae")
+
+# Filtering and formattig zooplankton data
+
+filtered_NDFS_zooplankton_data <- NDFS_zooplankton_data %>%
+  mutate(sampling_time = case_when( # CREATING "sampling_time" COLUMN
+    date < as.Date("2021-09-11") ~ "Before",
+    date >= as.Date("2021-09-11") & date <= ("2021-09-14") ~ "During",
+    date > ("2021-09-14") ~ "After",
+    TRUE ~ "Error")) %>% # Error if any dates are wrong 
+  filter(station %in% NDFS_station_codes) %>%
+  mutate(region = case_when(
+    station == "RMB"|station == "RCS" ~ "Colusa Drain/Ridge Cut",
+    station == "RD22"|station == "I80" ~ "Upper Yolo Bypass",
+    station == "LIS"|station == "STTD" ~ "Lower Yolo Bypass",
+    station == "BL5"|station == "LIB" ~ "Cache Slough Complex",
+    station == "RYI"|station == "RVB" ~ "Lower Sac River",
+    station == "SHR" ~ "Sherwood Harbor",
+    TRUE ~ "Error")) %>%# Error if any station codes are wrong 
+  mutate(site_region = case_when(
+    region == "Colusa Drain/Ridge Cut" | region == "Upper Yolo Bypass" | region == "Lower Yolo Bypass" ~ "Upstream region",
+    region == "Cache Slough Complex" | region == "Lower Sac River" ~ "Downstream region",
+    region == "Sherwood Harbor" ~ "Control region",
+    TRUE ~ "Error"))
+
+filtered_NDFS_zooplankton_data$CPUE <- #if Meso// eventually this will connect to the pipeline above for automation
+  ifelse( # copy over explanation
+    (filtered_NDFS_zooplankton_data$category != "MICROZOOPLANKTON & NAUPLII"), 
+    (filtered_NDFS_zooplankton_data$count/((filtered_NDFS_zooplankton_data$sub1_ml)/(filtered_NDFS_zooplankton_data$v1_ml))/
+       (((3.14*0.25)/4)*((abs(filtered_NDFS_zooplankton_data$flow_meter_end_150-filtered_NDFS_zooplankton_data$flow_meter_start_150)*57560)/999999))
+    ),
+    ifelse(
+      (filtered_NDFS_zooplankton_data$category == "MICROZOOPLANKTON & NAUPLII"), 
+      filtered_NDFS_zooplankton_data$count/((filtered_NDFS_zooplankton_data$sub2_ml)/(filtered_NDFS_zooplankton_data$v2_ml))/
+        (((3.14*0.25)/4)*((abs(filtered_NDFS_zooplankton_data$flow_meter_end_150-filtered_NDFS_zooplankton_data$flow_meter_start_150)*57560)/999999)),
+      0 # This should be error instead, so we can detect where there is an issue.
+    )) 
+
+filtered_NDFS_zooplankton_data$CPUE[is.na(filtered_NDFS_zooplankton_data$CPUE)] <- 0
+filtered_NDFS_zooplankton_data$log_CPUE <- log(filtered_NDFS_zooplankton_data$CPUE)
+
+# need to incorporate all of this into the pipeline when i am finalizing this report
+filtered_NDFS_zooplankton_data <- filtered_NDFS_zooplankton_data %>%
+  mutate(category = case_when(
+         category == "MICROZOOPLANKTON & NAUPLII" ~ "Microzooplankton & Nauplii",
+         category == "CYCLOPOIDS" ~ "Cyclopoids",
+         category == "CALANOIDS" ~ "Calanoids",
+         category == "CLADOCERA" ~ "Cladocera",
+         category == "HARPACTICOIDS" ~ "Harpacticoids",
+         category == "MACROZOOPLANKTON" ~ "Macrozooplankton",
+         TRUE ~ "Error")) 
+
+filtered_NDFS_zooplankton_data <- filtered_NDFS_zooplankton_data %>%
+  filter(category != "Macrozooplankton")
+
+# GGPLOT
+
+## Figure 39
+# all the factorization needs to be automated as well. 
+filtered_complete_phytoplankton_data$sampling_time <- factor(filtered_complete_phytoplankton_data$sampling_time, levels = c("Before", "During", "After"))
+filtered_complete_phytoplankton_data$site_region <- factor(filtered_complete_phytoplankton_data$site_region, levels = c("Upstream region", "Downstream region"))
+filtered_complete_phytoplankton_data$group <- factor(filtered_complete_phytoplankton_data$group, levels = c("Diatoms", "Green Algae", "Cyanobacteria", "Cryptophytes", "Golden Algae", "Other"))
+
+filtered_NDFS_zooplankton_data$category <- factor(filtered_NDFS_zooplankton_data$category, levels =c("Calanoids", "Microzooplankton & Nauplii", "Cyclopoids", "Cladocera", "Harpacticoids"))
+filtered_NDFS_zooplankton_data$sampling_time <- factor(filtered_NDFS_zooplankton_data$sampling_time, levels = c("Before", "During", "After"))
+filtered_NDFS_zooplankton_data$site_region <- factor(filtered_NDFS_zooplankton_data$site_region, levels = c("Upstream region", "Downstream region"))
+
+phytoplankton_boxplot <- ggplot(data = filtered_complete_phytoplankton_data, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar") +
+  geom_boxplot() +
+  #geom_hline(yintercept = 0) +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time) +
+  labs(x = element_blank(),
+       y = expression(paste("Log Phytoplankton Biovolume (","  ",mu, m^3, "/", mL,")", sep="")),
+       fill = "Sampling Period",
+       tag = "A") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_blank(),
+        legend.position = "none") + 
+  facet_grid(. ~ site_region) 
+
+zooplankton_boxplot <- ggplot(data = filtered_NDFS_zooplankton_data, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) + # I need to get rid of the top labels still
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  #geom_hline(yintercept = 0) +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = element_blank(),
+       y = expression(paste("Log Zooplankton CPUE  (","  ",no., "/", m^2,")", sep="")),
+       fill = "Sampling Period",
+       tag = "B")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position = "none") + 
+  facet_grid(. ~ site_region) 
+
+# having the same boxplot issue as before here
+
+combined_boxplot_39 <- ggarrange(phytoplankton_boxplot, zooplankton_boxplot, # I need to annotate each plot still, could potentially do this in powerpoint 
+                              ncol = 1, nrow = 2, 
+                              legend = "right", common.legend = TRUE)
+
+combined_boxplot_39
+
+## Figure 40
+zooplankton_tax_group_plot <- ggplot(data = filtered_NDFS_zooplankton_data, aes(x = sampling_time, y = log(CPUE), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar")+
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time)+
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Zooplankton CPUE  ("," ",no., "/", m^2,")", sep="")),
+       fill = "Sampling Period",
+       tag = "B")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  facet_wrap(. ~ category)
+
+phytoplankton_tax_group_plot <- ggplot(data = filtered_complete_phytoplankton_data, aes(x = sampling_time, y = log(biov_per_mL), fill = sampling_time)) +
+  stat_boxplot(geom = "errorbar") +
+  geom_boxplot() +
+  scale_fill_viridis(option = "A", discrete = TRUE) +
+  #scale_x_discrete(limits = sampling_time) +
+  labs(x = "Sampling Period",
+       y = expression(paste("Log Phytoplankton Biovolume ("," " ,mu, m^3, "/", mL,")", sep="")),
+       fill = "Sampling Period",
+       tag = "A") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank())+#,
+        #axis.text.x = element_blank()) +
+  facet_wrap(. ~ group)
+
+combined_group_plot_50 <- ggarrange(phytoplankton_tax_group_plot, zooplankton_tax_group_plot, # I need to annotate each plot still, could potentially do this in powerpoint 
+                                 ncol = 2, nrow = 1, 
+                                 legend = "right", common.legend = TRUE)
+
+combined_group_plot_50
+
+```
+
+```{r Chlorophyll,  fig.align="center", fig.width = 8.25, fig.height = 4}
+# Clean HYDSTRA
+# Take the name of the site from the file name and add it as a column
+HYDSTRA_file_names <- dir("data/chlorophyll", 
+                  pattern = "*_Hyds_chl.xlsx", 
+                  full.names = TRUE)
+
+# For loop that makes a list of the dataframes
+
+chl_file_list = list()
+
+for (i in HYDSTRA_file_names) {
+  
+  # First check if it is in the list of all sites. 
+  HYD_file_split <- strsplit(i, "[^a-zA-Z0-9]", fixed=F)
+
+  station_name <- intersect(unlist(HYD_file_split), all_sites)
+  
+  chl_file_read <- read_excel(i, skip = 2) %>%
+    mutate(station_code = station_name,.before = 1) %>%
+    filter(Date >= "2022-07-27 06:15:00") %>%
+    filter(Qual == "1") %>%
+    rename("chla" = "Point") %>%
+    subset(select = -Qual) %>%
+    clean_names()
+
+  chl_file_list[[length(chl_file_list)+1]] <- chl_file_read
+
+}
+
+View(chl_file_list[[2]])
+
+# USGS
+lib <- readNWISuv("11455315", parameterCd = "32316", USGS_start_date, USGS_end_date, tz = "Etc/GMT+8") # look for this data on WDL
+ryi <- readNWISuv("11455385", parameterCd = "32316", USGS_start_date, USGS_end_date, tz = "Etc/GMT+8") # this stuff needs to get put through clean_names()
+
+# Import data from CEMP
+rvb <- read_csv("data/chlorophyll_data/RVB_raw_chl.csv", skip = 4) %>%#look for this data on WDL
+  clean_names()
+
+usgs_clean <- list("LIB" = lib, "RYI" = ryi) %>% 
+  map(
+    ~dplyr::select(.x, dateTime, contains("32316")) %>% 
+      rename(
+        date = dateTime,
+        Chla_Qual = ends_with("_cd")) %>% # for now, this works. will need to fix this later.
+      rename(Chla = contains("32316")) %>%
+      subset(select = -Chla_Qual) %>%
+      clean_names()
+    ) %>% 
+  bind_rows(.id = "station_code") %>%
+  as_tibble()
+
+#CEMP 
+rvb_clean <- rvb %>% 
+  mutate(station_code = "RVB") %>%
+  dplyr::select(
+    station_code,
+    date,
+    chla = value,
+    chla_qual = `qaqc_flag`) %>% # I am only keeping this because I don't know what the flags are for this data.) %>% 
+  subset(select = -chla_qual) %>%
+  mutate(date = mdy_hm(date, tz = "Etc/GMT+8")) 
+
+# Bind data together
+df_chla <- bind_rows(usgs_clean, chl_file_list, rvb_clean)
+
+
+## Create a vector for the factor order of StationCode; note that other years may have more stations
+sta_order <- c(
+  "RD22",
+  "I80",
+  "LIS",
+  "STTD",
+  "LIB",
+  "RYI",
+  "RVB"
+)
+
+# Calculate daily averages and prepare for plot
+df_chla_daily_avg <- df_chla %>% 
+  mutate(date = date(date)) %>% # this is confusing. date column needs to be converted into a Date object, can do this before.
+  group_by(station_code, date) %>%
+  drop_na() %>%
+  summarize(daily_avg = mean(chla)) %>% 
+  # Fill in missing dates with NA values for geom_line to not interpolate data gaps
+  complete(date = seq.Date(min(date), max(date), by = "1 day")) %>%
+  ungroup() %>% 
+  mutate(
+    # Add a grouping variable for Region
+    region = if_else(
+      station_code %in% c("RD22", "I80", "LIS", "STTD"),
+      "Upstream",
+      "Downstream"
+    ),
+    # Apply factor order to StationCode
+    station_code = factor(station_code, levels = sta_order)
+  )
+
+# GGplot
+
+# Create a list for custom formatting of time-series plots
+ts_cust_format <- list(
+  theme_light(),
+  theme(
+    strip.text = element_text(color = "black"),
+    legend.position = "top",
+    plot.title = element_text(hjust = 0.5),
+    panel.grid.minor = element_blank()
+  ),
+  scale_x_date(
+    name = "Date",
+    breaks = breaks_pretty(10),
+    labels = label_date_short(),
+    # define limits of the x-axes to make them consistent
+    limits = c(ymd(start_date), ymd(end_date)),
+    expand = expansion(mult = 0.01)
+  ),
+  scale_color_viridis_d(
+    name = "Station:", 
+    option = "plasma", 
+    end = 0.95
+  )
+)
+
+# Define max and min values for the y-axes of the time-series plots
+y_min <- floor(min(df_chla_daily_avg$daily_avg, na.rm = TRUE))
+y_max <- ceiling(max(df_chla_daily_avg$daily_avg, na.rm = TRUE))
+
+# Create time-series plots of continuous WQ Data by Region
+plt_upstream <- df_chla_daily_avg %>% 
+  filter(region == "Upstream") %>% 
+  ggplot(aes(x = date, y = daily_avg, color = station_code)) +
+  geom_line() +
+  ts_cust_format +
+  scale_x_date(labels = label_date_short(c(NA, "%b", "%d", NA)))+
+  scale_y_continuous(
+    name = "Chlorophyll (µg/L)", 
+    limits = c(y_min, y_max), 
+    labels = label_comma()
+  ) +
+  ggtitle("Upstream Region") +
+  annotate(
+    "rect",
+    xmin = pp_cur_year_start, 
+    xmax = pp_cur_year_end,
+    ymin = -Inf,
+    ymax = Inf,
+    alpha = 0.2,
+    fill = "grey50"
+  )
+
+plt_downstream <- df_chla_daily_avg %>% 
+  filter(region == "Downstream") %>% 
+  ggplot(aes(x = date, y = daily_avg, color = station_code)) +
+  geom_line() +
+  ts_cust_format +
+  scale_x_date(labels = label_date_short(c(NA, "%b", "%d", NA)))+
+  scale_y_continuous(
+    name = NULL, 
+    limits = c(y_min, y_max), #customized y max based on this year's data
+    labels = label_comma()
+  ) +
+  ggtitle("Downstream Region") + 
+  annotate(
+    "rect",
+    xmin = pp_cur_year_start, 
+    xmax = pp_cur_year_end,
+    ymin = -Inf,
+    ymax = Inf,
+    alpha = 0.2,
+    fill = "grey50"
+  ) 
+
+# Combine plots together
+plt_upstream + plt_downstream
+
+# Export plot
+# ggsave(
+#   "chla_plot_2022.jpg",
+#   width = 8.25, 
+#   height = 4, 
+#   units = "in", 
+#   dpi = 300
+# )
 
 ```
 
 
-## Flow Figures and Statistics
-
-```{r flow}
-source("scripts/CDEC_flow_figs_stats.R")
-```
-
-## Water Quality Figures and Statistics
-
-## Nutrients Figures and Statistics
-
-## Plankton Figures and Statistics
-
-### Zooplankton
-
-### Phytoplankton
-
-## Cholorophyll Figures and Statistics

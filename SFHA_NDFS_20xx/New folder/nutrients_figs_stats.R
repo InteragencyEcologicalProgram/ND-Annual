@@ -1,1 +1,0 @@
-# Nutrients figures and statistics
