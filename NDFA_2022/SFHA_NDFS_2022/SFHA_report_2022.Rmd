@@ -6,10 +6,10 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-```{r, include=FALSE}
+```{r Libraries, include=FALSE, echo = FALSE}
 
 # installing libraries
 
@@ -30,21 +30,21 @@ lapply(c("tidyverse", "lubridate", "viridis",
 
 ```
 
-```{r Establishing Global Objects}
+```{r Establishing Global Objects, echo=FALSE}
 # Input dates here ----
-date_1 = NA # as.Date("2022-06-01")
-date_2 = NA # as.Date("2022-10-31")
+date_1 = as.Date("2022-06-01")
+date_2 = as.Date("2022-10-31")
 
 # Pulse period dates ----
-pp_cur_year_start <- NA # as.Date("2022-06-01") 
-pp_cur_year_end <- NA # as.Date("2022-10-31")
+pp_cur_year_start <- as.Date("2022-09-21")  
+pp_cur_year_end <- as.Date("2022-09-22")
 
-pp_pre_year_start <- NA # as.Date("2021-09-11")
-pp_pre_year_end <- NA # as.Date("2021-09-15")
+pp_pre_year_start <- as.Date("2021-09-11")
+pp_pre_year_end <- as.Date("2021-09-15")
 
 # USGS data retrieval dates
-USGS_start_date <- NA # as.Date("2022-07-27")
-USGS_end_date <- NA # as.Date("2022-10-03")
+USGS_start_date <- as.Date("2022-07-27")
+USGS_end_date <- as.Date("2022-10-03")
 
 # Site names go here ----
 all_sites <- c("RVB", "RYI", "LIB", "PRS", "BL5","I80", "RD22", "RMB","RCS", "LIS", "STTD", "WWT", "DWT")
@@ -92,7 +92,7 @@ plankton_output_path <- "output/plankton"
 chlorophyll_output_path <- "output/chlorophyll"
 ```
 
-```{r Helper Functions}
+```{r Helper Functions, echo=FALSE}
 # Helper functions for the CDEC flow data
 
 # this makes a dataframe for pulse periods, it needs the input from one df from generate_CDEC_CFS_LIST
@@ -121,7 +121,7 @@ range_of_pulse_period <- function(df) {
 
 ```
 
-```{r CDEC Lisbon Flow}
+```{r CDEC Lisbon Flow,fig.align='center', fig.width=8.25, fig.height=4, echo=FALSE}
 # Source data
 cdec_data = NULL
 
@@ -134,22 +134,22 @@ generate_CDEC_CFS_LIST <- function(years = 5){
 
   for (i in 0:n) {
     
-    CDEC_CFS_DF <- CDECRetrieve::cdec_query(station = "LIS",                    # query CDECRetrieve
+    CDEC_CFS_DF <- CDECRetrieve::cdec_query(station = "LIS",# query CDECRetrieve
                              sensor_num = "20", 
                              dur_code = "E", 
                              start_date = date_1 %m-% years(i), 
-                             end_date = date_2 %m-% years(i)) %>%               # filter and format query
+                             end_date = date_2 %m-% years(i)) %>% # filter and format query
       dplyr::mutate(location_id = as.factor(location_id)) %>% 
       dplyr::select(datetime, location_id, parameter_value) %>% 
-      dplyr::mutate(Month = month(datetime), # create a month and year variable, why?
+      dplyr::mutate(Month = month(datetime), 
              Year = year(datetime),
              Day = day(datetime),
              Hour= hour(datetime)) %>%
       tidyr::separate(datetime, into = c("date", "time"), sep = " ") %>%
-      dplyr::select(!time) %>% # you can also drop the parameter value, it doesn't matter anymore?
+      dplyr::select(!time) %>% 
       dplyr::group_by(Month, Day) %>%
       dplyr::mutate(daily_mean_flow = mean(parameter_value, na.rm = TRUE)) %>%
-      dplyr::distinct(date, daily_mean_flow, .keep_all = TRUE) %>%              # calculating flow pulse period
+      dplyr::distinct(date, daily_mean_flow, .keep_all = TRUE) %>% # calculating flow pulse period
       dplyr::group_by(return_rle_id = {
         return_rle_id = rle(daily_mean_flow > 0); 
         rep(seq_along(return_rle_id$lengths), return_rle_id$lengths)
@@ -250,16 +250,30 @@ ggsave(
   units = "in",
   dpi = 300
 )
+```
 
+# CDEC flow data and figures
 
+```{r fig 34}
 fig_34_plot
+```
+
+## Figure 34
+Figure 34: CDEC flow data from Lisbon Weir in the Yolo Bypass Toe Drain (station LIS) from June 1st through October 31st, 2022, taken at 15-minute intervals. Blue line indicates LOESS smoothing line ± 1 SE of daily average flow. Points represent daily average flow, the horizontal dashed line at 0 CFS indicate the threshold for positive flow (downstream), and the grey box highlights the two-day non-managed flow pulse that occurred September 21st and September 22, 2022, during which daily average flow was 31.1 CFS. Data from CDEC are provisional, did not undergo QA/QC and are subject to change.
+
+```{r fig 35}
 fig_35_plot
 ```
 
-```{r Water Quality, fig.align="center", fig.width = 6, fig.height = 8.5}
+## Figure 35
+Figure 35: CDEC flow data from Lisbon Weir in the Yolo Bypass Toe Drain (station “LIS”) from June 1st through October 31, 2019 – 2022, taken at 15-minute intervals. The horizontal dashed line at 0 CFS indicates the threshold for positive flow (downstream). The managed flow action in 2019 was experimental. Flow pulses in 2020, 2021 and 2022 were non-managed. Data from CDEC are provisional, did not undergo QA/QC and are subject to change.
+
+# Water Quality
+
+```{r Water Quality, fig.align="center", fig.width=6, fig.height=8.5, echo=FALSE}
 
 # Set file name here
-physical_wq_file <- "" # example: "NDFS_WQ_Data_2021.csv"
+physical_wq_file <- "NDFS_WQ_Data_2021.csv"
 
 physical_wq <- read_csv(paste0("data/water_quality/", physical_wq_file), skip = 1) %>%
   clean_names() 
@@ -334,19 +348,24 @@ ggsave(
   width = 6,
   height = 8.5,
   units = "in",
-  dpi = "300"
+  dpi = 300
 )
+```
 
+```{r fig 36}
 fig_36
 ```
 
-```{r Nutrients, fig.align="center", fig.width = 6, fig.height = 8.5}
+## Figure 36
+Figure 36: North Delta Food Subsidies study discrete water quality measurements in 2021 from upstream and downstream regions before, during and after the non-managed flow pulse. Mean values (±1 SD) for dissolved oxygen (mg/L), pH, specific conductivity (um/cm at 25 °C), water temperature (°C), and turbidity (FNU) were measured with a YSI ProDSS.
+
+```{r Nutrients, fig.align="center", fig.width=6, fig.height=8.5, echo=FALSE}
 # This only works if the data that we receive comes in the same structure
 
 # Dugdale-Wilkerson Lab at San Francisco State University nutrients.
 
 # link to original file
-nutrients_file <- "" # example: "SFSU_nutrients_2021.csv"
+nutrients_file <- "SFSU_nutrients_2021.csv"
 
 sfsu_nutrients <- read.csv(paste0("data/nutrients/", nutrients_file)) %>%
   clean_names()
@@ -415,17 +434,23 @@ ggsave(
   width = 6,
   height = 8.5,
   units = "in",
-  dpi = "300"
+  dpi = 300
 )
+```
 
+# Nutrients
+
+```{r fig 37}
 nut_plot
 ```
 
-```{r Phytoplankton and Zooplankton, fig.align='center', fig.width=8.25, fig.height=4}
+Figure 37: North Delta Food Subsidies study nutrient concentrations in water from the upstream and downstream study regions, before, during, and after the 2021 non-managed flow pulse. Mean concentrations (µmol±1 SD) are shown for dissolved ammonia, dissolved nitrate + nitrite, dissolved ortho-phosphate, and Silica. Nutrient levels were assessed by the Dugdale-Wilkerson Lab at San Francisco State University. The lab is not ELAP accredited and thus levels should be interpreted with caution.
+
+```{r Phytoplankton and Zooplankton, fig.align='center', fig.width=8.25, fig.height=4, echo=FALSE}
 # Pulling phytoplankton and zooplankton data
 
 ## Phytoplankton data
-NDFS_phytoplankton_data_file <- "" # example: "20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv"
+NDFS_phytoplankton_data_file <- "20211222_DWR_YOLO_BYPASS_PHYTOS_OUTPUT.csv"
 
 NDFS_phytoplankton_data <- read_csv(paste0("data/plankton/", NDFS_phytoplankton_data_file), show_col_types = FALSE) %>%
   clean_names()
@@ -438,7 +463,7 @@ phytoplankton_taxonomic_table <- read_csv("data/plankton/phyto_group_classificat
 complete_phyto_data <- left_join(NDFS_phytoplankton_data, phytoplankton_taxonomic_table, by = "genus")
 
 # Pulling zooplankton data
-zooplankton_folder_name <- "" # example: "20211115 YB Zooplankton ID Data Sheet - SAMPLES 67-143 - Contract 4600012453_EditedCOPY"
+zooplankton_folder_name <- "20211115 YB Zooplankton ID Data Sheet - SAMPLES 67-143 - Contract 4600012453_EditedCOPY"
 
 zooplankton_file_names <- dir(paste0("data/plankton/", zooplankton_folder_name), 
                   pattern = "*150um.csv", 
@@ -449,7 +474,7 @@ NDFS_zooplankton_data <- do.call(rbind, lapply(zooplankton_file_names, read.csv)
 
 NDFS_zooplankton_data$date <- as.Date(NDFS_zooplankton_data$date)
 
-zoop_field_data_file <- "" # example: "NDFS_zoop_field_data.csv"
+zoop_field_data_file <- "NDFS_zoop_field_data.csv"
 
 zoop_field_data <- read_csv(paste0("data/plankton/", zoop_field_data_file), show_col_types = FALSE, skip = 1) %>%
   clean_names()
@@ -659,13 +684,27 @@ ggsave(
   units = "in",
   dpi = 300
 )
-
-combined_boxplot_39
-combined_group_plot_40
-
 ```
 
-```{r Chlorophyll,  fig.align="center", fig.width = 8.25, fig.height = 4}
+# Plankton
+
+```{r fig 39}
+combined_boxplot_39
+```
+
+## Figure 39
+Figure 39: 2021 NDFS mean phytoplankton and zooplankton monitoring data. a) Log of mean phytoplankton biovolume (µm3/mL ± 1 SD) and b) log of mean zooplankton CPUE (catch per unit effort, number/m2 ± 1 SD) by NDFS study region and sampling period for six transects across August, September, and October before, during and after the 2021 small, non-managed flow pulse.
+
+```{r fig 40}
+combined_group_plot_40
+```
+
+## Figure 40
+Figure 40: 2021 NDFS phytoplankton and zooplankton monitoring data by taxonomic group. a) Log of mean phytoplankton biovolume (µm3/mL ± 1 SD) by phytoplankton taxonomic group and b) log of mean zooplankton CPUE (catch per unit effort, number/m2) by zooplankton taxonomic group from six transects across August, September, and October before, during and after the 2021 small, non-managed flow pulse.
+
+# Chlorophyll
+
+```{r Chlorophyll,  fig.align="center", fig.width=8.25, fig.height=4, echo=FALSE}
 # Clean HYDSTRA data ----
 ## Take the name of the site from the file name and add it as a column
 ### The data that comes from HYDSTRA should end with "_Hyds_chl.xlsx" if the chlorophyll data folder.
@@ -688,7 +727,7 @@ for (i in HYDSTRA_file_names) {
   # Then read the files in if they are in the list of all the sites, and format them.
   chl_file_read <- read_excel(i, skip = 2) %>%
     mutate(station_code = station_name,.before = 1) %>%
-    filter(Date >= "2022-07-27 06:15:00") %>%
+    filter(Date >= ymd(USGS_start_date)) %>%
     filter(Qual == "1") %>%
     rename("chla" = "Point") %>%
     subset(select = -Qual) %>%
@@ -699,7 +738,8 @@ for (i in HYDSTRA_file_names) {
 }
 
 # Import data from CEMP ----
-rvb <- read_csv("data/chlorophyll_data/RVB_raw_chl.csv", skip = 4) %>% 
+rvb_file_name <- "RVB_raw_chl.csv"
+rvb <- read_csv(paste0("data/chlorophyll/", rvb_file_name), skip = 4) %>% 
   clean_names()
 
 ## formatting the CEMP data
@@ -712,9 +752,6 @@ rvb_clean <- rvb %>%
     chla_qual = `qaqc_flag`) %>% # I am only keeping this because I don't know what the flags are for this data.) %>% 
   subset(select = -chla_qual) %>%
   mutate(date = mdy_hm(date, tz = "Etc/GMT+8")) 
-
-# Bind data together
-df_chla <- bind_rows(usgs_clean, chl_file_list, rvb_clean)
 
 # Pulling USGS data using the dataRetrieval package----
 lib <- readNWISuv("11455315", parameterCd = "32316", USGS_start_date, USGS_end_date, tz = "Etc/GMT+8") 
@@ -733,6 +770,9 @@ usgs_clean <- list("LIB" = lib, "RYI" = ryi) %>%
     ) %>% 
   bind_rows(.id = "station_code") %>%
   as_tibble()
+
+# Bind data together
+df_chla <- bind_rows(usgs_clean, chl_file_list, rvb_clean)
 
 ## Create a vector for the factor order of StationCode; note that other years may have more stations ----
 sta_order <- c(
@@ -854,4 +894,8 @@ ggsave(
   dpi = 300
 )
 
+chlorophyll_plot
 ```
+
+## Figure 41
+Figure 41: 2022 NDFS chlorophyll fluorescence data from continuous water quality stations. Stations shown in order from most upstream site to downstream: Toe Drain at Road 22 (RD22), Toe Drain at I80 (I80), Toe Drain below Lisbon Weir (LIS), Screw Trap at Toe Drain (STTD), Liberty Island (LIB), and Sacramento River at Rio Vista Bridge (RVB) between July and October of 2022. Chlorophyll data are daily averaged. Shaded area indicates the days of the flow action (9/21-9/22). Upstream sites were QA/QC’d using procedures from the Resources Assessment Branch WQES Field Manual (06/2020). Note that LIB, RYI (downloaded from USGS NWIS) and RVB (DWR EMP) data have not undergone QC.
